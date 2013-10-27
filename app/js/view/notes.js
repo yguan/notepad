@@ -43,9 +43,33 @@ define(function (require, exports, module) {
         });
 
         $scope.noteGroups = [
-            {name: 'A'},
-            {name: 'B'},
-            {name: 'C'}
+            {
+                name: 'A',
+                notes: [
+                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
+                    {html: 'Widget #2', row: 2, col: 8, sizex: 6, sizey: 1},
+                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
+                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
+                ]
+            },
+            {
+                name: 'B',
+                notes: [
+                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
+                    {html: 'Widget #2', row: 2, col: 4, sizex: 1, sizey: 1},
+                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
+                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
+                ]
+            },
+            {
+                name: 'C',
+                notes: [
+                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
+                    {html: 'Widget #2', row: 2, col: 4, sizex: 1, sizey: 1},
+                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
+                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
+                ]
+            }
         ];
     };
 });

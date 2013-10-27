@@ -23,6 +23,7 @@ module.exports = function (grunt) {
                 src: [
                     'app/css/compressed/bootstrap-tagsinput.css',
                     'app/css/compressed/angular-carousel.css',
+                    'app/css/compressed/jquery-gridster.css',
                     'app/css/compressed/app.css'
                 ],
                 dest: 'app/css/app-min.css'

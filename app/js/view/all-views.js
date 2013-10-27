@@ -18,6 +18,7 @@ define(function (require, exports, module) {
         angular.element(document).ready(function () {
             var noteApp = angular.module('note', [
                 'angular-carousel',
+                'gridster',
                 'bootstrap-tagsinput',
                 'angularFileUpload',
                 'styling'

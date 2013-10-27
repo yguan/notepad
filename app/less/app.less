@@ -22,11 +22,16 @@ body,
   .no-padding;
 }
 
-@view-padding: 20px;
+@view-padding: 40px;
 
 .note-group {
   height: calc(~'100% - ' (2* @view-padding));
   margin: @view-padding;
+}
+
+.gridster .gs-w {
+  background-color: whitesmoke;
+  list-style: none;
 }
 
 .rounded-corners (@radius: 10px) {
