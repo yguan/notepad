@@ -1,5 +1,5 @@
 <div ng-controller="NotesCtrl" class="main-view">
-    <ul rn-carousel rn-carousel-buffered class="notes" >
+    <ul rn-carousel rn-carousel-buffered rn-carousel-index="currentGroup" class="notes" >
         <li ng-repeat="group in noteGroups">
             <div class="note-group">{{ group.name }}</div>
         </li>
