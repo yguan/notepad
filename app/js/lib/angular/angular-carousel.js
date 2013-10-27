@@ -114,7 +114,7 @@ angular.module('angular-carousel')
             offset  = 0,                    // move offset
             minSwipePercentage = 0.1,       // minimum swipe required to trigger slide change
             containerWidth = 0,          // store width of the first slide
-            skipAnimation = true;
+            skipAnimation = false;
 
         /* add a wrapper div that will hide the overflow */
         var carousel = iElement.wrap("<div id='" + carouselId +"' class='rn-carousel-container'></div>"),
