@@ -1,0 +1,7 @@
+<div ng-controller="NotesCtrl">
+    <ul rn-carousel rn-carousel-buffered class="notes" >
+        <li ng-repeat="group in noteGroups">
+            <div class="note-group">{{ group.name }}</div>
+        </li>
+    </ul>
+</div>
