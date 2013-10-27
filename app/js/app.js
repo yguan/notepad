@@ -15,6 +15,8 @@ require([
     'lib/angular/angular',
     'lib/angular/angular-mobile',
     'lib/angular/angular-carousel',
+    'lib/angular/ui-bootstrap',
+    'lib/angular/ui-bootstrap-tpls',
     'lib/angular/jquery.gridster',
     'lib/angular/angular-gridster',
     'lib/angular/bootstrap-tagsinput',

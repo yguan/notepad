@@ -5,6 +5,60 @@ define(function (require, exports, module) {
         keyCode = {
             leftArrow: 37,
             rightArrow: 39
+        },
+        minBlockWidth = 100 + 5,
+        minBlockHeight = minBlockWidth,
+        getNoteGroupSize = function () {
+            var $noteGroup = angular.element('.note-group').first(),
+                $window = angular.element(window),
+                padding = 70 * 2;
+            if ($noteGroup.length === 0) {
+                return {
+                    height: $window.height() - padding,
+                    width: $window.width() - padding
+                };
+            }
+
+            return {
+                height: $noteGroup.height(),
+                width: $noteGroup.width()
+            }
+        },
+        getSizeInfo = function () {
+            var noteGroupSize = getNoteGroupSize(),
+                slideWidth = noteGroupSize.width,
+                slideHeight = noteGroupSize.height;
+
+            return {
+                maxColumns: Math.floor(slideWidth / minBlockWidth),
+                maxRows: Math.floor(slideHeight / minBlockHeight)
+            };
+        },
+        getDefaultNotesPlaceholder = function () {
+            var sizeInfo = getSizeInfo();
+
+            return {
+                notes: [
+                    {row: 1, col: 1, sizex: Math.floor(sizeInfo.maxColumns * 0.8), sizey: Math.ceil(sizeInfo.maxRows * 0.3)},
+                    {row: 1, col: sizeInfo.maxColumns, sizex: 2, sizey: sizeInfo.maxRows - 1},
+                    {row: 2, col: 1, sizex: Math.floor(sizeInfo.maxColumns * 0.4), sizey: Math.ceil(sizeInfo.maxRows * 0.3)},
+                    {row: 2, col: 3, sizex: Math.floor(sizeInfo.maxColumns * 0.4), sizey: Math.ceil(sizeInfo.maxRows * 0.3)},
+                    {row: 3, col: 3, sizex: Math.floor(sizeInfo.maxColumns * 0.8), sizey: 1},
+                    {row: 3, col: 3, sizex: 2, sizey: 1}
+                ]
+            };
+        },
+        getNotesPlaceholders = function (numberOfItems) {
+            var sizeInfo = getSizeInfo(),
+                notes = [
+                    {row: 1, col: sizeInfo.maxColumns, sizex: 1, sizey: 1}
+                ],
+                index = 1;
+
+            while (index < numberOfItems) {
+                notes.push({row: 1, col: 1, sizex: 1, sizey: 1});
+                index++;
+            }
         };
 
     exports.name = 'NotesCtrl';
@@ -43,33 +97,12 @@ define(function (require, exports, module) {
         });
 
         $scope.noteGroups = [
-            {
-                name: 'A',
-                notes: [
-                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
-                    {html: 'Widget #2', row: 2, col: 8, sizex: 6, sizey: 1},
-                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
-                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
-                ]
-            },
-            {
-                name: 'B',
-                notes: [
-                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
-                    {html: 'Widget #2', row: 2, col: 4, sizex: 1, sizey: 1},
-                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
-                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
-                ]
-            },
-            {
-                name: 'C',
-                notes: [
-                    {html: 'Widget #1', row: 1, col: 1, sizex: 2, sizey: 1},
-                    {html: 'Widget #2', row: 2, col: 4, sizex: 1, sizey: 1},
-                    {html: 'Widget #3', row: 1, col: 2, sizex: 4, sizey: 1},
-                    {html: 'Widget #4', row: 2, col: 2, sizex: 2, sizey: 2}
-                ]
-            }
+            getDefaultNotesPlaceholder()
         ];
+
+        $scope.addSlide = function () {
+            $scope.noteGroups = [getDefaultNotesPlaceholder()].concat($scope.noteGroups);
+//            $scope.$apply();
+        };
     };
 });
