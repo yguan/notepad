@@ -59,6 +59,10 @@ define(function (require, exports, module) {
                 notes.push({row: 1, col: 1, sizex: 1, sizey: 1});
                 index++;
             }
+
+            return {
+                notes: notes
+            };
         };
 
     exports.name = 'NotesCtrl';
@@ -100,9 +104,14 @@ define(function (require, exports, module) {
             getDefaultNotesPlaceholder()
         ];
 
-        $scope.addSlide = function () {
-            $scope.noteGroups = [getDefaultNotesPlaceholder()].concat($scope.noteGroups);
-//            $scope.$apply();
+        $scope.popover = {
+            saved: false,
+            numberOfNotes: '',
+            addSlide: function () {
+                $scope.noteGroups = [getNotesPlaceholders(this.numberOfNotes)].concat($scope.noteGroups);
+                this.numberOfNotes = '';
+                this.saved = true;
+            }
         };
     };
 });
