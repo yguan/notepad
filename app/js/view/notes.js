@@ -108,7 +108,7 @@ define(function (require, exports, module) {
             saved: false,
             numberOfNotes: '',
             addSlide: function () {
-                $scope.noteGroups = [getNotesPlaceholders(this.numberOfNotes)].concat($scope.noteGroups);
+                $scope.noteGroups = [getNotesPlaceholders(this.numberOfNotes || 5)].concat($scope.noteGroups);
                 this.numberOfNotes = '';
                 this.saved = true;
             }

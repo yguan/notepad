@@ -2,37 +2,39 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         less: {
+            development: {
+                options: {
+                    paths: ["app/css"]
+                },
+                files: {
+                    "app/css/app.css": "app/less/app.less"
+                }
+            },
             production: {
                 options: {
                     paths: ['app/css'],
                     yuicompress: true
                 },
-                files: [
-                    {
-                        expand: true,     // Enable dynamic expansion.
-                        cwd: 'app/less',  // Src matches are relative to this path.
-                        src: ['*.less'],  // Actual pattern(s) to match.
-                        dest: 'app/css/compressed',  // Destination path prefix.
-                        ext: '.css'       // Dest filepaths will have this extension.
-                    }
-                ]
+                files: {
+                    "app/css/app.css": "app/less/app.less"
+                }
             }
         },
         concat: {
             css: {
                 src: [
-                    'app/css/compressed/bootstrap-tagsinput.css',
-                    'app/css/compressed/bootstrap.css',
-                    'app/css/compressed/angular-carousel.css',
-                    'app/css/compressed/jquery-gridster.css',
-                    'app/css/compressed/app.css'
+                    'app/less/css/bootstrap-min.css',
+                    'app/less/css/bootstrap-tagsinput-min.css',
+                    'app/less/css/angular-carousel-min.css',
+                    'app/less/css/jquery-gridster-min.css',
+                    'app/css/app.css'
                 ],
                 dest: 'app/css/app-min.css'
             }
         },
         watch: {
             files: 'app/less/*',
-            tasks: ['less', 'concat'],
+            tasks: ['less:development', 'concat'],
             options: {
                 debounceDelay: 2000
             }
@@ -40,10 +42,6 @@ module.exports = function (grunt) {
         requirejs: {
             dist: {
                 options: {
-//                    baseUrl: 'app',
-//                    optimizeAllPluginResources: true,
-//                    wrap: true,
-//                    optimize: 'none',
                     appDir: 'app',
                     mainConfigFile: 'app/js/app.js',
                     dir: 'app-built',
@@ -64,3 +62,30 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['less:production', 'concat', 'requirejs']);
 };
+
+
+//less: {
+//    development: {
+//        options: {
+//            paths: ["app/css"]
+//        },
+//        files: {
+//            "app/css/app.css": "app/less/app.less"
+//        }
+//    },
+//    production: {
+//        options: {
+//            paths: ['app/css'],
+//                yuicompress: true
+//        },
+//        files: [
+//            {
+//                expand: true,     // Enable dynamic expansion.
+//                cwd: 'app/less',  // Src matches are relative to this path.
+//                src: ['*.less'],  // Actual pattern(s) to match.
+//                dest: 'app/css',  // Destination path prefix.
+//                ext: '.css'       // Dest filepaths will have this extension.
+//            }
+//        ]
+//    }
+//},

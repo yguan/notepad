@@ -1,19 +1,25 @@
-.full-height {
-  height: 100%;
-  min-height: 100%;
+@import "common";
+@import "bootstrap-override";
+
+@view-padding: 70px;
+
+.default-body-background-color {
+  background-color: #220e58;
 }
 
-.no-margin {
-  margin: 0;
-}
+//#0172c8
+//#e91124
+//#de3b01
+//#4e6b90
+//#c99a10
+//#0f9611
+//#c34c2f
+//#0f6eb3
+//#363738
+//#e8b41a
+//#6d3fc6
 
-.no-padding {
-  padding: 0;
-}
-
-.hand-cursor {
-  cursor: pointer;
-}
+.scroll-bar-style;
 
 html,
 body,
@@ -26,7 +32,13 @@ body,
   .no-padding;
 }
 
-@view-padding: 70px;
+body {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 14px;
+  color: #868c92;
+  .default-body-background-color;
+  -webkit-print-color-adjust: exact;
+}
 
 .note-group {
   height: calc(~'100% - ' (2* @view-padding));
@@ -37,89 +49,6 @@ body,
   background-color: whitesmoke;
   list-style: none;
   .hand-cursor;
-}
-
-.rounded-corners (@radius: 10px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-}
-
-.box-shadow (@blur: 15px, @rgba: rgba(0, 0, 0, .8)) {
-  -webkit-box-shadow: 0 0 @blur @rgba;
-  -moz-box-shadow: 0 0 @blur @rgba;
-  box-shadow: 0 0 @blur @rgba;
-}
-
-.no-box-shadow () {
-  -webkit-box-shadow: 'none';
-  -moz-box-shadow: 'none';
-  box-shadow: 'none';
-}
-
-.white-text {
-  color: white;
-}
-
-.black-text {
-  color: #000000;
-}
-
-.default-font-size {
-  font-size: 16px;
-}
-
-.white-background {
-  background-color: white;
-}
-
-.whitesmoke-background {
-  background-color: whitesmoke;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.default-line-height {
-  line-height: 140%;
-}
-
-::-webkit-scrollbar {
-  width: 16px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: lightgray;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: gray;
-}
-
-.default-body-background-color
-{
-  background-color: #220e58;
-}
-/*
-#0172c8
-#e91124
-#de3b01
-#4e6b90
-#c99a10
-#0f9611
-#c34c2f
-#0f6eb3
-#363738
-#e8b41a
-#6d3fc6
-*/
-body {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  font-size: 14px;
-  color: #868c92;
-  .default-body-background-color;
-  -webkit-print-color-adjust: exact;
 }
 
 h4 {
@@ -133,27 +62,6 @@ h4 {
 
 #viewport {
   overflow: hidden;
-}
-
-/* Fix for Bootstrap 3 with Angular UI Bootstrap */
-
-.modal {
-  display: block;
-}
-
-/* Custom dialog/modal headers */
-
-.dialog-header-error { background-color: #d2322d; }
-.dialog-header-wait { background-color: #428bca; }
-.dialog-header-notify { background-color: #eeeeee; }
-.dialog-header-confirm { background-color: #333333; }
-.dialog-header-error span, .dialog-header-error h4,
-.dialog-header-wait span, .dialog-header-wait h4,
-.dialog-header-confirm span, .dialog-header-confirm h4 { color: #ffffff; }
-
-/* Ease Display */
-.pad {
-  padding: 25px;
 }
 
 .sidebar-menu {
