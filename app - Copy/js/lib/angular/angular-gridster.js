@@ -1,7 +1,7 @@
-angular.module('angular-gridster', [])
-    .directive('gridster', ['$timeout', function ($timeout) {
+angular.module('gridster', [])
+    .directive('gridster', function ($timeout) {
         return {
-            restrict: 'AE',
+            restrict: 'AC',
             scope: { model: '=model' },
             template: '<ul><div widget ng-repeat="item in model" widget-model="item"></div></ul>',
             link: function ($scope, $element, $attributes, $controller) {
@@ -45,10 +45,10 @@ angular.module('angular-gridster', [])
                 });
             }
         };
-    }])
-    .directive('widget', [function () {
+    })
+    .directive('widget', function () {
         return {
-            restrict: 'AE',
+            restrict: 'AC',
             scope: { widgetModel: '=' },
             replace: true,
             template: '<li data-col="{{widgetModel.col}}" data-row="{{widgetModel.row}}" data-sizex="{{widgetModel.sizex}}" data-sizey="{{widgetModel.sizey}}">' +
@@ -57,4 +57,4 @@ angular.module('angular-gridster', [])
             link: function ($scope, $element, $attributes, $controller) {
             }
         };
-    }]);
+    });

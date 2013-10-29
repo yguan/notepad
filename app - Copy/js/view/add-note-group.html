@@ -1,0 +1,12 @@
+<form name="popoverForm" class="add-note-group">
+    <div class="number-of-notes">
+        <input type="text" class="form-control"
+               ng-model="popover.numberOfNotes"
+               placeholder="Number of Note Placeholders"
+               autofocus>
+    </div>
+    <div class="form-actions">
+        <button class="btn btn-primary" ng-click="popover.addSlide();dismiss()">Save changes</button>
+        <button type="button" class="btn btn-default" ng-click="dismiss()">Close</button>
+    </div>
+</form>

@@ -171,6 +171,7 @@ node_modules/
 # Packaging
 app-built/
 built/
+build-temp/
 
 # Angular JS
 **/bower_components/

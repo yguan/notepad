@@ -1,0 +1,20 @@
+<div ng-controller="NotesCtrl" class="main-view">
+    <div class="sidebar-menu">
+        <div class="glyphicon glyphicon-plus"
+             data-unique="1"
+             bs-popover="'js/view/add-note-group.html'"
+             data-title="Add New Slide">
+        </div>
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+    </div>
+    <ul rn-carousel rn-carousel-buffered rn-carousel-index="currentGroup" class="notes">
+        <li ng-repeat="group in noteGroups">
+            <div class="note-group">
+                <gridster class="gridster"
+                          model="group.notes"
+                          options="{ widget_margins: [5, 5], widget_base_dimensions: [100, 100], resize: {enabled: true} }">
+                </gridster>
+            </div>
+        </li>
+    </ul>
+</div>

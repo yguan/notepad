@@ -8,7 +8,7 @@ require.config({
     }
 });
 
-require(['lib/all-lib', 'lib/text'], function () {
+require(['lib/all-lib'], function () {
     require(['data/app-data-loader', 'view/all-views'], function (loader, views) {
         loader.init({
             success: views.init,

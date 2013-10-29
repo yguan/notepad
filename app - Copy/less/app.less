@@ -1,0 +1,100 @@
+@import "common";
+@import "bootstrap-override";
+
+@view-padding: 70px;
+
+.default-body-background-color {
+  background-color: #220e58;
+}
+
+//#0172c8
+//#e91124
+//#de3b01
+//#4e6b90
+//#c99a10
+//#0f9611
+//#c34c2f
+//#0f6eb3
+//#363738
+//#e8b41a
+//#6d3fc6
+
+.scroll-bar-style;
+
+html,
+body,
+.viewport,
+.main-view,
+.rn-carousel-container,
+.notes {
+  .full-height;
+  .no-margin;
+  .no-padding;
+}
+
+body {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 14px;
+  color: #868c92;
+  .default-body-background-color;
+  -webkit-print-color-adjust: exact;
+}
+
+.note-group {
+  height: calc(~'100% - ' (2* @view-padding));
+  margin: @view-padding;
+}
+
+.gridster .gs-w {
+  background-color: whitesmoke;
+  list-style: none;
+  .hand-cursor;
+}
+
+h4 {
+  margin: 0 0 10px 0;
+}
+
+.attention-text {
+  font-weight: bold;
+  color: orange;
+}
+
+#viewport {
+  overflow: hidden;
+}
+
+.sidebar-menu {
+  position: fixed;
+  left: 5px;
+  top: 40%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  text-align: center;
+  opacity: 0.2;
+  background-color: white;
+  .rounded-corners(5px);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .glyphicon {
+    padding-bottom: 15px;
+    color: #428bca;
+    font-size: 40px;
+    .hand-cursor;
+
+    &:hover {
+      color: #285e8e;
+    }
+  }
+}
+
+.number-of-notes {
+  width: 200px;
+  padding: 20px 0;
+}

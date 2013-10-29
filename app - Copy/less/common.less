@@ -1,0 +1,80 @@
+// Variables
+
+// Mixins
+
+.full-height {
+  height: 100%;
+  min-height: 100%;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.hand-cursor {
+  cursor: pointer;
+}
+
+.rounded-corners (@radius: 10px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.box-shadow (@blur: 15px, @rgba: rgba(0, 0, 0, .8)) {
+  -webkit-box-shadow: 0 0 @blur @rgba;
+  -moz-box-shadow: 0 0 @blur @rgba;
+  box-shadow: 0 0 @blur @rgba;
+}
+
+.scroll-bar-style (@width: 16px, @trackColor: lightgray, @thumbColor: gray){
+  ::-webkit-scrollbar {
+    width: @width;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: @trackColor;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: @thumbColor;
+  }
+}
+
+.no-box-shadow () {
+  -webkit-box-shadow: 'none';
+  -moz-box-shadow: 'none';
+  box-shadow: 'none';
+}
+
+.white-text {
+  color: white;
+}
+
+.black-text {
+  color: #000000;
+}
+
+.default-font-size {
+  font-size: 16px;
+}
+
+.default-line-height {
+  line-height: 140%;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.whitesmoke-background {
+  background-color: whitesmoke;
+}
+
+.inline-block {
+  display: inline-block;
+}
