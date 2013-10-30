@@ -1,19 +1,16 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        lib: './lib',
         data: './data',
         view: './view',
         extension: './extension'
     }
 });
 
-require(['lib/all-lib', 'lib/text'], function () {
-    require(['data/app-data-loader', 'view/all-views'], function (loader, views) {
-        loader.init({
-            success: views.init,
-            failure: views.init
-        });
+require(['data/app-data-loader', 'view/all-views'], function (loader, views) {
+    loader.init({
+        success: views.init,
+        failure: views.init
     });
 });
 

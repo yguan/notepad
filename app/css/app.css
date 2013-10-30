@@ -1,1 +1,141 @@
-.full-height{height:100%;min-height:100%}.no-margin{margin:0}.no-padding{padding:0}.hand-cursor{cursor:pointer}.white-text{color:white}.black-text{color:#000}.default-font-size{font-size:16px}.default-line-height{line-height:140%}.white-background{background-color:white}.whitesmoke-background{background-color:whitesmoke}.inline-block{display:inline-block}.modal{display:block}.dialog-header-error{background-color:#d2322d}.dialog-header-wait{background-color:#428bca}.dialog-header-notify{background-color:#eee}.dialog-header-confirm{background-color:#333}.dialog-header-error span,.dialog-header-error h4,.dialog-header-wait span,.dialog-header-wait h4,.dialog-header-confirm span,.dialog-header-confirm h4{color:#fff}.pad{padding:25px}.default-body-background-color{background-color:#220e58}::-webkit-scrollbar{width:16px}::-webkit-scrollbar-track{background-color:#d3d3d3}::-webkit-scrollbar-thumb{background-color:#808080}html,body,.viewport,.main-view,.rn-carousel-container,.notes{height:100%;min-height:100%;margin:0;padding:0}body{font-family:Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;font-size:14px;color:#868c92;background-color:#220e58;-webkit-print-color-adjust:exact}.note-group{height:calc(100% - 140px);margin:70px}.gridster .gs-w{background-color:whitesmoke;list-style:none;cursor:pointer}h4{margin:0 0 10px 0}.attention-text{font-weight:bold;color:orange}#viewport{overflow:hidden}.sidebar-menu{position:fixed;left:5px;top:40%;z-index:5;list-style:none;margin:0;padding:0;width:50px;text-align:center;opacity:.2;background-color:white;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}.sidebar-menu:hover{opacity:1}.sidebar-menu .glyphicon{padding-bottom:15px;color:#428bca;font-size:40px;cursor:pointer}.sidebar-menu .glyphicon:hover{color:#285e8e}.number-of-notes{width:200px;padding:20px 0}
+.full-height {
+  height: 100%;
+  min-height: 100%;
+}
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
+.hand-cursor {
+  cursor: pointer;
+}
+.white-text {
+  color: white;
+}
+.black-text {
+  color: #000000;
+}
+.default-font-size {
+  font-size: 16px;
+}
+.default-line-height {
+  line-height: 140%;
+}
+.white-background {
+  background-color: white;
+}
+.whitesmoke-background {
+  background-color: whitesmoke;
+}
+.inline-block {
+  display: inline-block;
+}
+.modal {
+  display: block;
+}
+.dialog-header-error {
+  background-color: #d2322d;
+}
+.dialog-header-wait {
+  background-color: #428bca;
+}
+.dialog-header-notify {
+  background-color: #eeeeee;
+}
+.dialog-header-confirm {
+  background-color: #333333;
+}
+.dialog-header-error span,
+.dialog-header-error h4,
+.dialog-header-wait span,
+.dialog-header-wait h4,
+.dialog-header-confirm span,
+.dialog-header-confirm h4 {
+  color: #ffffff;
+}
+.pad {
+  padding: 25px;
+}
+.default-body-background-color {
+  background-color: #220e58;
+}
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background-color: #d3d3d3;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #808080;
+}
+html,
+body,
+.viewport,
+.main-view,
+.rn-carousel-container,
+.notes {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 14px;
+  color: #868c92;
+  background-color: #220e58;
+  -webkit-print-color-adjust: exact;
+}
+.note-group {
+  height: calc(100% -  140px);
+  margin: 70px;
+}
+.gridster .gs-w {
+  background-color: whitesmoke;
+  list-style: none;
+  cursor: pointer;
+}
+h4 {
+  margin: 0 0 10px 0;
+}
+.attention-text {
+  font-weight: bold;
+  color: orange;
+}
+#viewport {
+  overflow: hidden;
+}
+.sidebar-menu {
+  position: fixed;
+  left: 5px;
+  top: 40%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  text-align: center;
+  opacity: 0.2;
+  background-color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.sidebar-menu:hover {
+  opacity: 1;
+}
+.sidebar-menu .glyphicon {
+  padding-bottom: 15px;
+  color: #428bca;
+  font-size: 40px;
+  cursor: pointer;
+}
+.sidebar-menu .glyphicon:hover {
+  color: #285e8e;
+}
+.number-of-notes {
+  width: 200px;
+  padding: 20px 0;
+}

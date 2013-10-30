@@ -172,6 +172,7 @@ node_modules/
 app-built/
 built/
 build-temp/
+dist/
 
 # Angular JS
 **/bower_components/
