@@ -3,7 +3,6 @@ module.exports = {
         src: [
             '<%= folder.src %>/less/css/bootstrap-min.css',
             '<%= folder.src %>/less/css/bootstrap-tagsinput-min.css',
-            '<%= folder.src %>/less/css/angular-carousel-min.css',
             '<%= folder.src %>/less/css/jquery-gridster-min.css',
             '<%= folder.src %>/css/app.css'
         ],
@@ -13,7 +12,6 @@ module.exports = {
         src: [
             '<%= folder.src %>/less/css/bootstrap-min.css',
             '<%= folder.src %>/less/css/bootstrap-tagsinput-min.css',
-            '<%= folder.src %>/less/css/angular-carousel-min.css',
             '<%= folder.src %>/less/css/jquery-gridster-min.css',
             '<%= folder.distTemp %>/app.css'
         ],
@@ -27,7 +25,6 @@ module.exports = {
             '<%= folder.src %>/js/lib/jquery.js',
             '<%= folder.src %>/js/lib/angular/angular.js',
             '<%= folder.src %>/js/lib/angular/angular-mobile.js',
-            '<%= folder.src %>/js/lib/angular/angular-carousel.js',
             '<%= folder.src %>/js/lib/angular/bootstrap.js',
             '<%= folder.src %>/js/lib/angular/angular-strap.js',
             '<%= folder.src %>/js/lib/angular/jquery.gridster.js',

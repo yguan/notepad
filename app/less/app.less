@@ -19,14 +19,15 @@
 //#e8b41a
 //#6d3fc6
 
-.scroll-bar-style;
+  .scroll-bar-style
+
+;
 
 html,
 body,
 .viewport,
 .main-view,
-.rn-carousel-container,
-.notes {
+.gridster {
   .full-height;
   .no-margin;
   .no-padding;
@@ -40,15 +41,16 @@ body {
   -webkit-print-color-adjust: exact;
 }
 
-.note-group {
-  height: calc(~'100% - ' (2* @view-padding));
+.notes {
   margin: @view-padding;
 }
 
-.gridster .gs-w {
-  background-color: whitesmoke;
-  list-style: none;
-  .hand-cursor;
+.gridster {
+  .gs-w, .gs_w {
+    background-color: whitesmoke;
+    list-style: none;
+    .hand-cursor;
+  }
 }
 
 h4 {
@@ -60,14 +62,10 @@ h4 {
   color: orange;
 }
 
-#viewport {
-  overflow: hidden;
-}
-
 .sidebar-menu {
   position: fixed;
   left: 5px;
-  top: 40%;
+  top: 10px;
   z-index: 5;
   list-style: none;
   margin: 0;
@@ -93,9 +91,3 @@ h4 {
     }
   }
 }
-
-.number-of-notes {
-  width: 200px;
-  padding: 20px 0;
-}
-

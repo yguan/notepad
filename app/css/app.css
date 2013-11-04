@@ -74,8 +74,7 @@ html,
 body,
 .viewport,
 .main-view,
-.rn-carousel-container,
-.notes {
+.gridster {
   height: 100%;
   min-height: 100%;
   margin: 0;
@@ -88,11 +87,11 @@ body {
   background-color: #220e58;
   -webkit-print-color-adjust: exact;
 }
-.note-group {
-  height: calc(100% -  140px);
+.notes {
   margin: 70px;
 }
-.gridster .gs-w {
+.gridster .gs-w,
+.gridster .gs_w {
   background-color: whitesmoke;
   list-style: none;
   cursor: pointer;
@@ -104,13 +103,10 @@ h4 {
   font-weight: bold;
   color: orange;
 }
-#viewport {
-  overflow: hidden;
-}
 .sidebar-menu {
   position: fixed;
   left: 5px;
-  top: 40%;
+  top: 10px;
   z-index: 5;
   list-style: none;
   margin: 0;
@@ -134,8 +130,4 @@ h4 {
 }
 .sidebar-menu .glyphicon:hover {
   color: #285e8e;
-}
-.number-of-notes {
-  width: 200px;
-  padding: 20px 0;
 }

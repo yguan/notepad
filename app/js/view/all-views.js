@@ -1,4 +1,8 @@
+/*jslint nomen: true*/
+/*global $,define,require,angular,document */
+
 define(function (require, exports, module) {
+    'use strict';
 
     var notes = require('view/notes');
 
@@ -9,7 +13,7 @@ define(function (require, exports, module) {
     function configViewRouting(app) {
         app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
-                .when('/notes', {templateUrl: 'js/view/notes.html', controller: notes.name})
+                .when('/notes', {templateUrl: 'js/view/partial/notes.html', controller: notes.name})
                 .otherwise({redirectTo: '/notes'});
         }]);
     }
@@ -17,7 +21,6 @@ define(function (require, exports, module) {
     exports.init = function () {
         angular.element(document).ready(function () {
             var noteApp = angular.module('note', [
-                'angular-carousel',
                 'angular-gridster',
                 '$strap.directives',
                 'bootstrap-tagsinput',

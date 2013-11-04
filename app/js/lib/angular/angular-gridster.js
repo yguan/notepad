@@ -1,17 +1,20 @@
 angular.module('angular-gridster', [])
-    .directive('gridster', ['$timeout', function ($timeout) {
+    .directive('gridster', ['$timeout', '$parse', function ($timeout, $parse) {
         return {
             restrict: 'AE',
-            scope: { model: '=model' },
+            scope: {
+                model: '=model',
+                options: '=options'
+            },
             template: '<ul><div widget ng-repeat="item in model" widget-model="item"></div></ul>',
             link: function ($scope, $element, $attributes, $controller) {
-                var gridster;
-                var ul = $element.find('ul');
-                var defaultOptions = {
-                    widget_margins: [5, 5],
-                    widget_base_dimensions: [70, 70]
-                };
-                var options = angular.extend(defaultOptions, $scope.$eval($attributes.options));
+                var gridster,
+                    ul = $element.find('ul'),
+                    defaultOptions = {
+                        widget_margins: [5, 5],
+                        widget_base_dimensions: [70, 70]
+                    },
+                    options = angular.extend(defaultOptions, $scope.options);
 
                 $timeout(function () {
                     gridster = ul.gridster(options).data('gridster');
@@ -31,7 +34,7 @@ angular.module('angular-gridster', [])
 
                 var attachElementToGridster = function (li) {
                     //attaches a new element to gridster
-                    var $w = li.addClass('gs_w').appendTo(gridster.$el).hide();
+                    var $w = li.addClass('gs-w').appendTo(gridster.$el).hide();
                     gridster.$widgets = gridster.$widgets.add($w);
                     gridster.register_widget($w).add_faux_rows(1).set_dom_grid_height();
                     $w.fadeIn();

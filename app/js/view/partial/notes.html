@@ -1,0 +1,15 @@
+<div ng-controller="NotesCtrl" class="main-view">
+    <div class="sidebar-menu">
+        <div class="glyphicon glyphicon-plus"
+             bs-tooltip="tooltip.addNote"
+             ng-click="addNote()"
+             data-placement="right">
+        </div>
+    </div>
+    <div class="notes">
+        <gridster class="gridster"
+                  model="notes"
+                  options="gridster.options">
+        </gridster>
+    </div>
+</div>
