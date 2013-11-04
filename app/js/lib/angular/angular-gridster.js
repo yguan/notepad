@@ -33,11 +33,12 @@ angular.module('angular-gridster', [])
                 });
 
                 var attachElementToGridster = function (li) {
-                    //attaches a new element to gridster
-                    var $w = li.addClass('gs-w').appendTo(gridster.$el).hide();
-                    gridster.$widgets = gridster.$widgets.add($w);
-                    gridster.register_widget($w).add_faux_rows(1).set_dom_grid_height();
-                    $w.fadeIn();
+                    var row = li.data('row'),
+                        col = li.data('col'),
+                        sizex = li.data('sizex'),
+                        sizey = li.data('sizey');
+
+                    gridster.add_widget.apply(gridster, [li, sizex, sizey, row, col]);
                 };
                 $scope.$watch('model.length', function (newValue, oldValue) {
                     if (newValue != oldValue + 1) return; //not an add
