@@ -13,13 +13,13 @@ define(function (require, exports, module) {
     exports.controller = function ($scope, $location, $document, $timeout) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
             container: '.notes',
-            widgetMinWidth: 200,
-            widgetMinHeight: 200
+            widgetMinWidth: 300,
+            widgetMinHeight: 250,
+            padding: 5
         });
-        var count = 0;
 
         function getNoteConfig() {
-            return {html: count++, row: 1, col: 1, sizex: 1, sizey: 1};
+            return {row: 1, col: 1, sizex: 1, sizey: 1};
         }
 
         $scope.tooltip = {

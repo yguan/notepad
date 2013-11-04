@@ -14,10 +14,14 @@ define(function (require, exports, module) {
     }
 
     exports.getSizeInfo = function (config) {
-        var gridsterSize = getGridsterSize(config.container);
+        var gridsterSize = getGridsterSize(config.container),
+            widgetWidthWithPadding = config.widgetMinWidth + config.padding || 0,
+            numberOfWidget = Math.floor(gridsterSize.width / widgetWidthWithPadding),
+            remainder = gridsterSize.width % widgetWidthWithPadding,
+            adjustedWidgetWidth = remainder > 0 ? (remainder / numberOfWidget + config.widgetMinWidth) : config.widgetMinWidth;
 
         return {
-            widgetMinWidth: config.widgetMinWidth,
+            widgetMinWidth: adjustedWidgetWidth,
             widgetMinHeight: config.widgetMinHeight,
             maxColumns: Math.floor(gridsterSize.width / config.widgetMinWidth),
             maxRows: Math.floor(gridsterSize.height / config.widgetMinHeight)
