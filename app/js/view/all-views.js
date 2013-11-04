@@ -7,7 +7,7 @@ define(function (require, exports, module) {
     var notes = require('view/notes');
 
     function registerController(app, controller) {
-        app.controller(controller.name, ['$scope', '$location', '$document', controller.controller]);
+        app.controller(controller.name, ['$scope', '$location', '$document', '$timeout', controller.controller]);
     }
 
     function configViewRouting(app) {

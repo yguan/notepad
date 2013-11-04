@@ -10,13 +10,14 @@ define(function (require, exports, module) {
 
     exports.name = 'NotesCtrl';
 
-    exports.controller = function ($scope, $location, $document) {
+    exports.controller = function ($scope, $location, $document, $timeout) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
-                container: '.notes',
-                widgetMinWidth: 200,
-                widgetMinHeight: 200
-            });
-var count = 0;
+            container: '.notes',
+            widgetMinWidth: 200,
+            widgetMinHeight: 200
+        });
+        var count = 0;
+
         function getNoteConfig() {
             return {html: count++, row: 1, col: 1, sizex: 1, sizey: 1};
         }
