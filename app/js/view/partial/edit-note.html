@@ -5,11 +5,11 @@
             <h4>Edit Note</h4>
         </div>
         <div class="modal-body">
+            <div class="input-group">
+                <span class="input-group-addon">Title</span>
+                <input type="text" class="form-control" ng-model="title">
+            </div>
             <div text-angular text-angular-name="note"></div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn  btn-default" ng-click="hide()">Close</button>
-            <button class="btn btn-primary" ng-click="modal.saved=true;hide()">Save changes</button>
         </div>
     </div>
 </div>

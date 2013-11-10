@@ -1,13 +1,13 @@
 <div ng-controller="NotesCtrl" class="main-view">
     <div class="sidebar-menu">
-        <div class="fa fa-plus" ng-click="addNote()"></div>
+        <div class="fa fa-plus" ng-click="addNote()" title="Add Note"></div>
     </div>
     <div class="notes">
         <gridster options="gridster.options">
-            <gridster-item ng-repeat="item in notes" options="item.gridsterOptions">
-                <div class="title">{{item.note.title}}</div>
-                <div class="content">{{item.note.content}}</div>
-                <div class="fa fa-pencil" ng-click="editNote(item.note.id)"></div>
+            <gridster-item ng-repeat="note in notes" options="note.gridsterOptions">
+                <div class="title">{{note.title}}</div>
+                <div class="content">{{note.summary}}</div>
+                <div class="fa fa-pencil" ng-click="editNote(note)" title="Edit Note"></div>
             </gridster-item>
         </gridster>
     </div>

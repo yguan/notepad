@@ -4,41 +4,11 @@
 define(function (require, exports, module) {
     'use strict';
     var idb = require('data/idb'),
-        tagGroupRepo = require('data/tag-group-repository'),
         dbKey = 'note';
 
     module.exports = {
-        create: function (note, tags, op) {
-            var me = this;
-
-            if (tags) {
-                tagGroupRepo.add(tags, {
-                    success: function (tagGroup) {
-                        note.tagGroupId = tagGroup.id;
-                        me.add(note, op);
-                    },
-                    failure: op.failure
-                });
-            } else {
-                me.add(note, op);
-            }
-        },
         add: function (note, op) {
-            var me = this;
-
-            if (note.tags) {
-                tagGroupRepo.add(note.tags, {
-                    success: function (tagGroup) {
-                        note.tagGroupId = tagGroup.id;
-                        delete note.tags;
-                        idb.add(dbKey, note, 'url', op);
-                    },
-                    failure: op.failure
-                });
-            } else {
-                idb.add(dbKey, note, 'url', op);
-            }
-
+            idb.create(dbKey, note, op);
         },
         addAll: function (notes, op) {
             var me = this,
@@ -94,16 +64,6 @@ define(function (require, exports, module) {
         update: function (note, op) {
             idb.update(dbKey, note, op);
         },
-        updateTags: function (note, newTags, op) {
-            tagGroupRepo.findExact(newTags, {
-                success: function (results) {
-                    note.tagGroupId = results[0].id;
-                    idb.update(dbKey, note, op);
-                },
-                failure: function () {
-                }
-            });
-        },
         each: function (fn, op) {
             idb.db[dbKey]
                 .query()
@@ -114,6 +74,9 @@ define(function (require, exports, module) {
                 .execute()
                 .done(op.success)
                 .fail(op.failure);
+        },
+        getAll: function (op) {
+            idb.getAll(dbKey, op);
         }
     };
 

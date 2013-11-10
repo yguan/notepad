@@ -1,17 +1,17 @@
 /*jslint nomen: true*/
-/*global $,define,require,angular,window */
+/*global $,define,require,angular,window,console */
 
 define(function (require, exports, module) {
     'use strict';
 
     var gridsterSizeCalculator = require('view/gridster-size-calculator'),
         noteRepo = require('data/note-repository'),
-        tagGroupRepo = require('data/tag-group-repository'),
-        editNoteCtrl = require('view/edit-note');
+        editNoteCtrl = require('view/edit-note'),
+        genericHandlers = require('view/generic-handlers');
 
     exports.name = 'NotesCtrl';
 
-    exports.controller = function ($scope, $location, $document, $modal) {
+    exports.controller = function ($scope, $location, $document, $timeout, $modal) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
             container: '.notes',
             widgetMinWidth: 300,
@@ -19,31 +19,49 @@ define(function (require, exports, module) {
             padding: 5
         });
 
+        $scope.notes = [];
+
         function getDefaultGridsterItemOptions() {
             return {row: 1, col: 1, sizex: 1, sizey: 1};
         }
 
         function getDefaultNote() {
             return {
-                note: {
-                    id: 34,
-                    title: '',
-                    content: '',
-                    dateCreated: new Date()
-                },
+                title: '',
+                summary: '',
+                content: '',
+                dateCreated: new Date(),
                 gridsterOptions: getDefaultGridsterItemOptions()
             };
         }
 
-        $scope.tooltip = {
-            addNote: 'Add Note'
-        };
+        function addNote() {
+            noteRepo.add(getDefaultNote(), {
+                success: function (note) {
+                    $scope.notes.push(note);
+                    $scope.$apply();
+                },
+                failure: genericHandlers.error
+            });
+        }
 
-        $scope.notes = [getDefaultNote()];
+        function getNotes() {
+            noteRepo.getAll({
+                success: function (notes) {
+                    if (notes.length > 0) {
+                        $scope.notes = notes;
+                    } else {
+                        addNote();
+                    }
+                    $scope.$apply();
+                },
+                failure: genericHandlers.error
+            });
+        }
 
-        $scope.addNote = function () {
-            $scope.notes.push(getDefaultNote());
-        };
+        getNotes();
+
+        $scope.addNote = addNote;
 
         $scope.gridster = {
             options: {
@@ -54,8 +72,8 @@ define(function (require, exports, module) {
             }
         };
 
-        $scope.editNote = function (noteId) {
-            editNoteCtrl.showEditor(noteId, $scope, $modal);
+        $scope.editNote = function (note) {
+            editNoteCtrl.showEditor(note, $scope, $timeout, $modal);
         };
     };
 });

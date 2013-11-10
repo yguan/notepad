@@ -1,6 +1,7 @@
 @import "common";
 
 @view-padding: 70px;
+@default-icon-size: 20px;
 
 .default-font {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
@@ -106,6 +107,7 @@ h4 {
     .full-width;
     .overflow-hidden;
     background-color: lightgray;
+    min-height: 20px;
   }
 
   .content {
@@ -113,9 +115,20 @@ h4 {
     .overflow-hidden;
   }
 
-  .default-fa-style(14px);
+  .default-fa-style(@default-icon-size);
   .fa {
     position: absolute;
     right: 5px;
+    top: 0;
+  }
+}
+
+.textAngular-toolbar {
+  .fa, .textAngular-toolbar-item {
+    font-size: @default-icon-size !important;
+
+    &:hover {
+      background-color: #609dd6 !important;
+    }
   }
 }

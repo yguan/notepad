@@ -5,7 +5,7 @@ define(function (require, exports, module) {
     'use strict';
 
     var noteRepo = require('data/note-repository'),
-        tagGroupRepo = require('data/tag-group-repository'),
+        genericHandlers = require('view/generic-handlers'),
         textAngularOpts = {
             textAngularEditors: {
                 note: {
@@ -21,12 +21,12 @@ define(function (require, exports, module) {
                         {icon: '<i class="fa fa-list-ol"></i>', name: 'ol', title: 'Ordered List'},
                         {icon: '<i class="fa fa-rotate-right"></i>', name: 'redo', title: 'Redo'},
                         {icon: '<i class="fa fa-undo"></i>', name: 'undo', title: 'Undo'},
-                        {icon: '<i class="fa fa-ban-circle"></i>', name: 'clear', title: 'Clear'},
+                        {icon: '<i class="fa fa-ban"></i>', name: 'clear', title: 'Clear'},
                         {icon: '<i class="fa fa-file"></i>', name: 'insertImage', title: 'Insert Image'},
                         {icon: '<i class="fa fa-html5"></i>', name: 'insertHtml', title: 'Insert Html'},
                         {icon: '<i class="fa fa-link"></i>', name: 'createLink', title: 'Create Link'}
                     ],
-                    html: 'Edit me!',
+                    html: '',
                     disableStyle: false,
                     theme: {
                         editor: {
@@ -61,9 +61,9 @@ define(function (require, exports, module) {
         },
         noteEditor;
 
-    exports.showEditor = function (noteId, $scope, $modal) {
+    exports.showEditor = function (note, $scope, $timeout, $modal) {
         if (noteEditor) {
-            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = "new stuff";
+            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
             noteEditor.modal.then(function (modalEl) {
                 modalEl.modal('show');
             });
@@ -82,6 +82,22 @@ define(function (require, exports, module) {
                 }),
                 scope: scope
             };
+            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
+            scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
+                $timeout(function () {
+                    note.summary = noteEditor.scope.textAngularOpts.textAngularEditors.note.text.substring(0, 1000);
+                    note.content = noteEditor.scope.textAngularOpts.textAngularEditors.note.html;
+                    noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
+                }, 200);
+            }, true);
         }
+        noteEditor.scope.title = note.title;
+
+        noteEditor.scope.$watch('title', function (newVal, oldVal) {
+            $timeout(function () {
+                note.title = newVal;
+                noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
+            }, 200);
+        }, true);
     };
 });

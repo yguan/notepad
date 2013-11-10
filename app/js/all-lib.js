@@ -34156,7 +34156,9 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
             } : scope.theme.insertFormBtn;
         },
         compileHtml: function (scope, html) {
-            var compHtml = $("<div>").append(html).html().replace(/(class="(.*?)")|(class='(.*?)')/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/style=("|')(.*?)("|')/g, "");
+            var htmlDiv = $("<div>").append(html),
+                text = htmlDiv.text(),
+                compHtml = htmlDiv.html().replace(/(class="(.*?)")|(class='(.*?)')/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/style=("|')(.*?)("|')/g, "");
             if (scope.showHtml == "load") {
                 scope.textAngularModel.text = $sce.trustAsHtml(compHtml);
                 scope.textAngularModel.html = $sce.trustAsHtml(compHtml.replace(/</g, "&lt;"));
@@ -34167,6 +34169,7 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
                 scope.textAngularModel.html = $sce.trustAsHtml(compHtml.replace(/</g, "&lt;"));
             }
             scope.$parent.textAngularOpts.textAngularEditors[scope.name]["html"] = compHtml;
+            scope.$parent.textAngularOpts.textAngularEditors[scope.name]["text"] = text;
         },
         //wraps the selection in the provided tag
         wrapSelection: function (command, opt) {
@@ -34292,7 +34295,6 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
         scope: {},
         restrict: "A",
         controller: function ($scope, $element, $attrs) {
-            console.log("Thank you for using textAngular! http://www.textangular.com");
             $scope.insert = {};
             $scope.finishInsert = function () {
                 methods.wrapSelection($scope.currentInsert, $scope.insert.model);
