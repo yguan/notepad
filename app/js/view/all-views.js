@@ -22,6 +22,7 @@ define(function (require, exports, module) {
         angular.element(document).ready(function () {
             var noteApp = angular.module('note', [
                 'ngRoute',
+                'ngSanitize',
                 'angular-gridster',
                 '$strap.directives',
                 'bootstrap-tagsinput',

@@ -28,7 +28,7 @@ define(function (require, exports, module) {
         function getDefaultNote() {
             return {
                 title: '',
-                summary: '',
+                contentHtml: '',
                 content: '',
                 dateCreated: new Date(),
                 gridsterOptions: getDefaultGridsterItemOptions()

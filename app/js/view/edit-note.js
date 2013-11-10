@@ -85,7 +85,7 @@ define(function (require, exports, module) {
             noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
             scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
                 $timeout(function () {
-                    note.summary = noteEditor.scope.textAngularOpts.textAngularEditors.note.text.substring(0, 1000);
+                    note.contentHtml = noteEditor.scope.textAngularOpts.textAngularEditors.note.unsafeHtml;
                     note.content = noteEditor.scope.textAngularOpts.textAngularEditors.note.html;
                     noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
                 }, 200);

@@ -199,9 +199,8 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
             } : scope.theme.insertFormBtn;
         },
         compileHtml: function (scope, html) {
-            var htmlDiv = $("<div>").append(html),
-                text = htmlDiv.text(),
-                compHtml = htmlDiv.html().replace(/(class="(.*?)")|(class='(.*?)')/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/style=("|')(.*?)("|')/g, "");
+            var html = $("<div>").append(html).html(),
+                compHtml = html.replace(/(class="(.*?)")|(class='(.*?)')/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/style=("|')(.*?)("|')/g, "");
             if (scope.showHtml == "load") {
                 scope.textAngularModel.text = $sce.trustAsHtml(compHtml);
                 scope.textAngularModel.html = $sce.trustAsHtml(compHtml.replace(/</g, "&lt;"));
@@ -212,7 +211,7 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
                 scope.textAngularModel.html = $sce.trustAsHtml(compHtml.replace(/</g, "&lt;"));
             }
             scope.$parent.textAngularOpts.textAngularEditors[scope.name]["html"] = compHtml;
-            scope.$parent.textAngularOpts.textAngularEditors[scope.name]["text"] = text;
+            scope.$parent.textAngularOpts.textAngularEditors[scope.name]["unsafeHtml"] = html;
         },
         //wraps the selection in the provided tag
         wrapSelection: function (command, opt) {
@@ -375,7 +374,7 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
                     var opts = scope.$parent.textAngularOpts.textAngularEditors[name];
                     scope.toolbar = scope.$parent.textAngularOpts.textAngularEditors[name].toolbar; //go through each toolbar item and find matches against whats configured in the opts
                 }
-                scope.$parent.$watch('textAngularOpts.textAngularEditors["' + name + '"].html', function (newVal, oldVal) {
+                scope.$parent.$watch('textAngularOpts.textAngularEditors["' + name + '"].html', function (oldVal, newVal) {
                     if ( !! !$(':focus').parents('.textAngular-root')[0]) { //if our root isn't focused, we need to update the model. 
                         scope.textAngularModel.text = $sce.trustAsHtml(newVal);
                         scope.textAngularModel.html = $sce.trustAsHtml(newVal.replace(/</g, "&lt;"));

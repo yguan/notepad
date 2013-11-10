@@ -27,6 +27,7 @@ module.exports = {
             '<%= folder.src %>/js/lib/jquery.js',
             '<%= folder.src %>/js/lib/angular/angular.js',
             '<%= folder.src %>/js/lib/angular/angular-route.js',
+            '<%= folder.src %>/js/lib/angular/angular-sanitize.js',
             '<%= folder.src %>/js/lib/angular/angular-mobile.js',
             '<%= folder.src %>/js/lib/angular/bootstrap.js',
             '<%= folder.src %>/js/lib/angular/angular-strap.js',
