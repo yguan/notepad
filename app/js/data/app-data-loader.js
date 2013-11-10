@@ -1,4 +1,8 @@
+/*jslint nomen: true*/
+/*global $,define,require,angular,window */
+
 define(function (require, exports, module) {
+    'use strict';
 
     var idb = require('data/idb'),
         tagGroupRepo = require('data/tag-group-repository'),

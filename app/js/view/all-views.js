@@ -7,25 +7,27 @@ define(function (require, exports, module) {
     var notes = require('view/notes');
 
     function registerController(app, controller) {
-        app.controller(controller.name, ['$scope', '$location', '$document', '$timeout', controller.controller]);
+        app.controller(controller.name, ['$scope', '$location', '$document', '$modal', controller.controller]);
     }
 
     function configViewRouting(app) {
-        app.config(['$routeProvider', function ($routeProvider) {
+        app.config(function ($routeProvider, $locationProvider) {
             $routeProvider
                 .when('/notes', {templateUrl: 'js/view/partial/notes.html', controller: notes.name})
                 .otherwise({redirectTo: '/notes'});
-        }]);
+        });
     }
 
     exports.init = function () {
         angular.element(document).ready(function () {
             var noteApp = angular.module('note', [
+                'ngRoute',
                 'angular-gridster',
                 '$strap.directives',
                 'bootstrap-tagsinput',
                 'angularFileUpload',
-                'styling'
+                'styling',
+                'textAngular'
             ]);
 
             configViewRouting(noteApp);

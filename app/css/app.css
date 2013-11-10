@@ -2,11 +2,17 @@
   height: 100%;
   min-height: 100%;
 }
+.full-width {
+  width: 100%;
+}
 .no-margin {
   margin: 0;
 }
 .no-padding {
   padding: 0;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 .hand-cursor {
   cursor: pointer;
@@ -32,31 +38,9 @@
 .inline-block {
   display: inline-block;
 }
-.modal {
-  display: block;
-}
-.dialog-header-error {
-  background-color: #d2322d;
-}
-.dialog-header-wait {
-  background-color: #428bca;
-}
-.dialog-header-notify {
-  background-color: #eeeeee;
-}
-.dialog-header-confirm {
-  background-color: #333333;
-}
-.dialog-header-error span,
-.dialog-header-error h4,
-.dialog-header-wait span,
-.dialog-header-wait h4,
-.dialog-header-confirm span,
-.dialog-header-confirm h4 {
-  color: #ffffff;
-}
-.pad {
-  padding: 25px;
+.default-font {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 14px;
 }
 .default-body-background-color {
   background-color: #220e58;
@@ -122,12 +106,36 @@ h4 {
 .sidebar-menu:hover {
   opacity: 1;
 }
-.sidebar-menu .glyphicon {
-  padding-bottom: 15px;
+.sidebar-menu .fa {
   color: #428bca;
   font-size: 40px;
   cursor: pointer;
 }
-.sidebar-menu .glyphicon:hover {
+.sidebar-menu .fa:hover {
   color: #285e8e;
+}
+.note-padding {
+  padding: 0 5px;
+}
+.notes .title {
+  padding: 0 5px;
+  width: 100%;
+  overflow: hidden;
+  background-color: lightgray;
+}
+.notes .content {
+  padding: 0 5px;
+  overflow: hidden;
+}
+.notes .fa {
+  color: #428bca;
+  font-size: 14px;
+  cursor: pointer;
+}
+.notes .fa:hover {
+  color: #285e8e;
+}
+.notes .fa {
+  position: absolute;
+  right: 5px;
 }

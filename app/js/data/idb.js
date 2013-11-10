@@ -1,17 +1,21 @@
+/*jslint nomen: true*/
+/*global $,define,require,angular,window,_ */
+
 define(function (require, exports, module) {
+    'use strict';
 
     var db = require('lib/db'),
         idb = {
             schema: {
-                bookmark: {
+                note: {
                     key: {
                         keyPath: 'id',
                         autoIncrement: true
                     },
                     indexes: {
                         title: {},
-                        url: {},
-                        dateAdded: {},
+                        dateCreated: {},
+                        dateModified: {},
                         tagGroupId: {}
                     }
                 },
@@ -65,7 +69,7 @@ define(function (require, exports, module) {
                     success: function (results) {
                         if (results && results.length > 0) {
                             var oldItem = results[0];
-                            _.extend(oldItem, item)
+                            _.extend(oldItem, item);
                             me.update(dbKey, oldItem, {
                                 success: function (results) {
                                     op.success(results[0]);
@@ -130,7 +134,7 @@ define(function (require, exports, module) {
                     dataKeyCount = 0,
                     addData = function (key, items) {
                         data[key] = items;
-                        dataKeyCount++;
+                        dataKeyCount = dataKeyCount + 1;
 
                         if (dbKeysCount === dataKeyCount) {
                             op.success(data);
@@ -177,7 +181,7 @@ define(function (require, exports, module) {
                 function updateNext() {
                     if (i < len) {
                         db.update(items[i]).done(function () {
-                            ++i;
+                            i = i + 1;
                             updateNext();
                         }).fail(op.failure);
                     } else {   // complete

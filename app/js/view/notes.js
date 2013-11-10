@@ -10,7 +10,7 @@ define(function (require, exports, module) {
 
     exports.name = 'NotesCtrl';
 
-    exports.controller = function ($scope, $location, $document, $timeout) {
+    exports.controller = function ($scope, $location, $document, $modal) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
             container: '.notes',
             widgetMinWidth: 300,
@@ -18,18 +18,29 @@ define(function (require, exports, module) {
             padding: 5
         });
 
-        function getNoteConfig() {
+        function getDefaultGridsterItemOptions() {
             return {row: 1, col: 1, sizex: 1, sizey: 1};
+        }
+
+        function getDefaultNote() {
+            return {
+                note: {
+                    title: '',
+                    content: '',
+                    dateCreated: new Date()
+                },
+                gridsterOptions: getDefaultGridsterItemOptions()
+            };
         }
 
         $scope.tooltip = {
             addNote: 'Add Note'
         };
 
-        $scope.notes = [getNoteConfig()];
+        $scope.notes = [getDefaultNote()];
 
         $scope.addNote = function () {
-            $scope.notes.push(getNoteConfig());
+            $scope.notes.push(getDefaultNote());
         };
 
         $scope.gridster = {
@@ -38,6 +49,73 @@ define(function (require, exports, module) {
                 widget_base_dimensions: [gridsterSize.widgetMinWidth, gridsterSize.widgetMinHeight],
                 min_cols: gridsterSize.maxColumns,
                 resize: {enabled: true}
+            }
+        };
+
+        $scope.editNote = function (noteId) {
+            $scope.content = 'somet';
+            // do something
+            var modal = $modal({
+                template: 'js/view/partial/text-editor.html',
+                show: true,
+                backdrop: 'static',
+                persist: false,
+                scope: $scope
+            });
+        };
+
+        $scope.width = function () {
+            var element = angular.element('.notes').first();
+            return {
+                'width': (element.width() - 200) + 'px'
+            };
+        };
+
+        $scope.textAngularOpts = {
+            textAngularEditors : {
+                demo1 : {
+                    toolbar : [
+                        {icon : "<i class='fa fa-code'></i>", name : "html", title : "Toggle Html"},
+                        {icon : "h1", name : "h1", title : "H1"},
+                        {icon : "h2", name : "h2", title : "H2"},
+                        {icon : "pre", name : "pre", title : "Pre"},
+                        {icon : "<i class='fa fa-bold'></i>", name : "b", title : "Bold"},
+                        {icon : "<i class='fa fa-italic'></i>", name : "i", title : "Italics"},
+                        {icon : "p", name : "p", title : "Paragraph"},
+                        {icon : "<i class='fa fa-list-ul'></i>", name : "ul", title : "Unordered List"},
+                        {icon : "<i class='fa fa-list-ol'></i>", name : "ol", title : "Ordered List"},
+                        {icon : "<i class='fa fa-rotate-right'></i>", name : "redo", title : "Redo"},
+                        {icon : "<i class='fa fa-undo'></i>", name : "undo", title : "Undo"},
+                        {icon : "<i class='fa fa-ban-circle'></i>", name : "clear", title : "Clear"},
+                        {icon : "<i class='fa fa-file'></i>", name : "insertImage", title : "Insert Image"},
+                        {icon : "<i class='fa fa-html5'></i>", name : "insertHtml", title : "Insert Html"},
+                        {icon : "<i class='fa fa-link'></i>", name : "createLink", title : "Create Link"}
+                    ],
+                    html : "<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li>Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li>Doesn't Use an iFrame</li><li>Works with Firefox, Chrome, and IE10+</li></ol><p><b>Code at GitHub:</b> <a href='https://github.com/fraywing/textAngular'>Here</a> </p>",
+                    disableStyle : false,
+                    theme : {
+                        editor : {
+                            "font-family" : "Roboto",
+                            "font-size" : "1.2em",
+                            "color": "black",
+                            "border-radius" : "4px",
+                            "padding" : "11px",
+                            "background" : "white",
+                            "border" : "1px solid rgba(2,2,2,0.1)"
+                        },
+                        insertFormBtn : {
+                            "background" : "red",
+                            "color" : "white",
+                            "padding" : "2px 3px",
+                            "font-size" : "15px",
+                            "margin-top" : "4px",
+                            "border-radius" : "4px",
+                            "font-family" : "Roboto",
+                            "border" : "2px solid red"
+                        }
+                    }
+                }
+
             }
         };
     };

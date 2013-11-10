@@ -1,5 +1,8 @@
-define(function (require, exports, module) {
+/*jslint nomen: true*/
+/*global $,define,require,angular,window,_ */
 
+define(function (require, exports, module) {
+    'use strict';
     var idb = require('data/idb'),
         tagGroupRepo = require('data/tag-group-repository'),
         dbKey = 'note';
@@ -15,7 +18,7 @@ define(function (require, exports, module) {
                         me.add(note, op);
                     },
                     failure: op.failure
-                })
+                });
             } else {
                 me.add(note, op);
             }
@@ -31,7 +34,7 @@ define(function (require, exports, module) {
                         idb.add(dbKey, note, 'url', op);
                     },
                     failure: op.failure
-                })
+                });
             } else {
                 idb.add(dbKey, note, 'url', op);
             }
@@ -47,11 +50,11 @@ define(function (require, exports, module) {
                 if (i < len) {
                     me.add(notes[i], {
                         success: function () {
-                            ++i;
+                            i = i + 1;
                             addNext();
                         },
                         failure: function () {
-                            errorCount++;
+                            errorCount = errorCount + 1;
                         }
                     });
                 } else {   // complete
@@ -82,7 +85,7 @@ define(function (require, exports, module) {
                     title = note.title.toLowerCase();
                 _.each(lowercaseKeywords, function (keyword) {
                     if (title.indexOf(keyword) !== -1) {
-                        matchedCount++;
+                        matchedCount = matchedCount + 1;
                     }
                 });
                 return keywordCount === matchedCount;
@@ -99,7 +102,7 @@ define(function (require, exports, module) {
                 },
                 failure: function () {
                 }
-            })
+            });
         },
         each: function (fn, op) {
             idb.db[dbKey]
@@ -115,7 +118,3 @@ define(function (require, exports, module) {
     };
 
 });
-
-
-
-
