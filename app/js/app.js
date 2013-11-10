@@ -19,5 +19,3 @@ require(['data/app-data-loader', 'view/all-views'], function (loader, views) {
         failure: views.init
     });
 });
-
-// python -m http.server
