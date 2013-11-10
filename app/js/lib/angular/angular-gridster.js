@@ -4,6 +4,14 @@
 (function () {
     'use strict';
 
+    function updateGridsterItemOptions(e, ui, $widget) {
+        var element = ($widget && $widget[0]) || ui.$player[0],
+            widgetOptions = element.dataset,
+            gridsterItemScope = angular.element(element).scope().$$childHead;
+
+        angular.extend(gridsterItemScope.options, widgetOptions);
+    }
+
     angular.module('angular-gridster', [])
         .directive("gridster", function () {
 
@@ -20,6 +28,16 @@
                     return {
                         init: function (elem, options) {
                             var ul = elem.find("ul");
+                            if (!options.draggable) {
+                                options.draggable = {stop: updateGridsterItemOptions};
+                            }
+                            if (!options.resize) {
+                                options.resize = {
+                                    enabled: true,
+                                    stop: updateGridsterItemOptions
+                                };
+                            }
+
                             gridster = ul.gridster(options).data('gridster');
                         },
                         addItem: function (elm, options) {
@@ -49,7 +67,8 @@
                 template: '<li ng-transclude></li>',
                 transclude: true,
                 scope: {
-                    options: '=options'
+                    options: '=options',
+                    model: '=ngModel'
                 },
                 replace: true,
                 link: function (scope, elm, attrs, controller) {

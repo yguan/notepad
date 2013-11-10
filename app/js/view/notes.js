@@ -66,8 +66,7 @@ define(function (require, exports, module) {
             options: {
                 widget_margins: [5, 5],
                 widget_base_dimensions: [gridsterSize.widgetMinWidth, gridsterSize.widgetMinHeight],
-                min_cols: gridsterSize.maxColumns,
-                resize: {enabled: true}
+                min_cols: gridsterSize.maxColumns
             }
         };
 
