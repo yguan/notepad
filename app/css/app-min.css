@@ -740,6 +740,8 @@ h4 {
 .notes .content {
   padding: 0 5px;
   overflow: hidden;
+  width: 90%;
+  height: 90%;
 }
 .notes .fa {
   color: #428bca;
