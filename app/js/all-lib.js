@@ -34718,7 +34718,6 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
                 scope.textAngularModel.html = $sce.trustAsHtml(compHtml.replace(/</g, "&lt;"));
             }
             scope.$parent.textAngularOpts.textAngularEditors[scope.name]["html"] = compHtml;
-            scope.$parent.textAngularOpts.textAngularEditors[scope.name]["unsafeHtml"] = html;
         },
         //wraps the selection in the provided tag
         wrapSelection: function (command, opt) {
