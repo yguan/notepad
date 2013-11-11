@@ -66,14 +66,31 @@ define(function (require, exports, module) {
         noteEditor;
 
     exports.showEditor = function (note, $scope, $timeout, $modal) {
+        function createContentWatcher(scope, note) {
+            return scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
+                $timeout(function () {
+                    note.content = scope.textAngularOpts.textAngularEditors.note.html;
+                    noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
+                }, 200);
+            }, true);
+        }
+
+        function createTitleWatcher(scope, note) {
+            return scope.$watch('title', function (newVal, oldVal) {
+                $timeout(function () {
+                    note.title = newVal;
+                    noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
+                }, 200);
+            }, true);
+        }
+
         if (noteEditor) {
-            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
             noteEditor.modal.then(function (modalEl) {
                 modalEl.modal('show');
             });
         } else {
             var scope = $scope.$new(true);
-            scope.width = getModalWidth;
+            scope.modalWidth = getModalWidth;
             scope.textAngularOpts = textAngularOpts;
 
             noteEditor = {
@@ -86,21 +103,19 @@ define(function (require, exports, module) {
                 }),
                 scope: scope
             };
-            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
-            scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
-                $timeout(function () {
-                    note.content = noteEditor.scope.textAngularOpts.textAngularEditors.note.html;
-                    noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
-                }, 200);
-            }, true);
         }
-        noteEditor.scope.title = note.title;
 
-        noteEditor.scope.$watch('title', function (newVal, oldVal) {
-            $timeout(function () {
-                note.title = newVal;
-                noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
-            }, 200);
-        }, true);
+        if (noteEditor.titleWatcher) {
+            noteEditor.titleWatcher();
+        }
+        if (noteEditor.contentWatcher) {
+            noteEditor.contentWatcher();
+        }
+
+        noteEditor.scope.title = note.title;
+        noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
+
+        noteEditor.titleWatcher = createTitleWatcher(noteEditor.scope, note);
+        noteEditor.contentWatcher = createContentWatcher(noteEditor.scope, note);
     };
 });

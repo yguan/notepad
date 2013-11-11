@@ -34919,7 +34919,7 @@ textAngular.directive('textAngular', function ($compile, $sce, $window, $timeout
                     var opts = scope.$parent.textAngularOpts.textAngularEditors[name];
                     scope.toolbar = scope.$parent.textAngularOpts.textAngularEditors[name].toolbar; //go through each toolbar item and find matches against whats configured in the opts
                 }
-                scope.$parent.$watch('textAngularOpts.textAngularEditors["' + name + '"].html', function (oldVal, newVal) {
+                scope.$parent.$watch('textAngularOpts.textAngularEditors["' + name + '"].html', function (newVal, oldVal) {
                     if ( !! !$(':focus').parents('.textAngular-root')[0]) { //if our root isn't focused, we need to update the model. 
                         scope.textAngularModel.text = $sce.trustAsHtml(newVal);
                         scope.textAngularModel.html = $sce.trustAsHtml(newVal.replace(/</g, "&lt;"));
