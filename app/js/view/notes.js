@@ -41,16 +41,6 @@ define(function (require, exports, module) {
             noteRepo.updateAll(notes, {success: genericHandlers.noop, failure: genericHandlers.error});
         }
 
-        function addNote() {
-            noteRepo.add(getDefaultNote(), {
-                success: function (note) {
-                    $scope.notes.push(note);
-//                    $scope.$apply();
-                },
-                failure: genericHandlers.error
-            });
-        }
-
         function getNotes() {
             noteRepo.getAll({
                 success: function (notes) {
@@ -58,10 +48,8 @@ define(function (require, exports, module) {
                         $scope.notes = _.sortBy(notes, function (note) {
                             return note.gridsterOptions.row;
                         });
-                    } else {
-                        addNote();
+                        $scope.$apply();
                     }
-                    $scope.$apply();
                 },
                 failure: genericHandlers.error
             });
@@ -69,7 +57,25 @@ define(function (require, exports, module) {
 
         getNotes();
 
-        $scope.addNote = addNote;
+        $scope.isAddingNote = false;
+
+        $scope.addNote = function () {
+            if ($scope.isAddingNote) {
+                return;
+            }
+            noteRepo.add(getDefaultNote(), {
+                success: function (note) {
+                    $scope.notes.push(note);
+                    $scope.$apply();
+                    $scope.isAddingNote = false;
+                },
+                failure: function (error) {
+                    genericHandlers.error(error);
+                    $scope.isAddingNote = false;
+                }
+            });
+            $scope.isAddingNote = true;
+        };
 
         $scope.gridster = {
             options: {
