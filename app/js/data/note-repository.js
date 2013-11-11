@@ -64,6 +64,9 @@ define(function (require, exports, module) {
         update: function (note, op) {
             idb.update(dbKey, note, op);
         },
+        updateAll: function (notes, op) {
+            idb.updateAll(dbKey, notes, op);
+        },
         each: function (fn, op) {
             idb.db[dbKey]
                 .query()

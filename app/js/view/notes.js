@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global $,define,require,angular,window,console */
+/*global $,define,require,angular,window,console,_ */
 
 define(function (require, exports, module) {
     'use strict';
@@ -34,11 +34,18 @@ define(function (require, exports, module) {
             };
         }
 
+        function saveLayout(notes, gridsterWidgetOptions) {
+            _.each(notes, function (note, index) {
+                angular.extend(note.gridsterOptions, gridsterWidgetOptions[index]);
+            });
+            noteRepo.updateAll(notes, {success: genericHandlers.noop, failure: genericHandlers.error});
+        }
+
         function addNote() {
             noteRepo.add(getDefaultNote(), {
                 success: function (note) {
                     $scope.notes.push(note);
-                    $scope.$apply();
+//                    $scope.$apply();
                 },
                 failure: genericHandlers.error
             });
@@ -48,7 +55,9 @@ define(function (require, exports, module) {
             noteRepo.getAll({
                 success: function (notes) {
                     if (notes.length > 0) {
-                        $scope.notes = notes;
+                        $scope.notes = _.sortBy(notes, function (note) {
+                            return note.gridsterOptions.row;
+                        });
                     } else {
                         addNote();
                     }
@@ -69,6 +78,13 @@ define(function (require, exports, module) {
                 min_cols: gridsterSize.maxColumns
             }
         };
+        $scope.gridsterWidgetOptions = [];
+
+        $scope.$watch('gridsterWidgetOptions', function (newVal, oldVal) {
+            if (newVal.length > 0) {
+                saveLayout($scope.notes, newVal);
+            }
+        });
 
         $scope.editNote = function (note) {
             editNoteCtrl.showEditor(note, $scope, $timeout, $modal);

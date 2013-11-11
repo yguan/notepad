@@ -4,12 +4,9 @@
 (function () {
     'use strict';
 
-    function updateGridsterItemOptions(e, ui, $widget) {
-        var element = ($widget && $widget[0]) || ui.$player[0],
-            widgetOptions = element.dataset,
-            gridsterItemScope = angular.element(element).scope().$$childHead;
-
-        angular.extend(gridsterItemScope.options, widgetOptions);
+    function updateGridsterWidgetOptions(gridster, scope) {
+        scope.$parent.gridsterWidgetOptions = gridster.serialize();
+        scope.$parent.$digest();
     }
 
     angular.module('angular-gridster', [])
@@ -26,22 +23,27 @@
                 controller: function () {
                     var gridster = null;
                     return {
-                        init: function (elem, options) {
+                        init: function (elem, options, scope) {
                             var ul = elem.find("ul");
                             if (!options.draggable) {
-                                options.draggable = {stop: updateGridsterItemOptions};
+                                options.draggable = {
+                                    stop: function () {
+                                        updateGridsterWidgetOptions(gridster, scope);
+                                    }
+                                };
                             }
                             if (!options.resize) {
                                 options.resize = {
                                     enabled: true,
-                                    stop: updateGridsterItemOptions
+                                    stop: function () {
+                                        updateGridsterWidgetOptions(gridster, scope);
+                                    }
                                 };
                             }
-
                             gridster = ul.gridster(options).data('gridster');
                         },
                         addItem: function (elm, options) {
-                            gridster.add_widget(elm, options.sizex, options.sizey, options.row, options.col);
+                            gridster.add_widget(elm, options.sizex, options.sizey, options.col, options.row);
                         },
                         removeItem: function (elm) {
                             gridster.remove_widget(elm);
@@ -55,7 +57,7 @@
                         },
                         options = angular.extend(defaultOptions, scope.options);
 
-                    return controller.init(elem, options);
+                    return controller.init(elem, options, scope);
                 }
             };
         })
