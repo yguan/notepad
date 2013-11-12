@@ -6,6 +6,9 @@ module.exports = {
             out: '<%= folder.dist %>/js/app.js',
             generateSourceMaps: false,
             optimize: 'uglify2',
+            uglify2: {
+                mangle: false
+            },
             findNestedDependencies: true,
             inlineText: true,
             preserveLicenseComments: false

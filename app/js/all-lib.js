@@ -31770,7 +31770,7 @@ makeSwipeDirective('ngSwipeRight', 1);
 
         this.set_dom_grid_height();
 
-        return $w.fadeIn(500);
+        return $w.fadeIn();
     };
 
 

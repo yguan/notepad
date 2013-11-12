@@ -6,11 +6,12 @@ module.exports = {
                 cwd: '<%= folder.src %>/',
                 src: [
                     'manifest.json',
-                    'icon.png',
-                    'index.html',
+                    '*.html',
+                    '*.png',
+                    '*.js',
                     'fonts/**',
                     'img/**',
-                    'js/view/*.html'
+                    'js/view/partial/*.html'
                 ],
                 dest: '<%= folder.dist %>/'
             },

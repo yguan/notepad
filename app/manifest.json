@@ -1,16 +1,15 @@
 {
-    "name": "Bookmarks Tagging",
-    "version": "2.4",
-    "description": "Manage bookmarks with tags.",
-    "permissions": [
-        "bookmarks",
-        "tabs"
-    ],
-    "browser_action": {
-        "default_title": "Bookmarks Tagging",
-        "default_icon": "icon.png",
-        "default_popup": "index.html"
+    "name": "Flex Note",
+    "description": "A simple note taking app that supports dynamic layout",
+    "version": "0.1",
+    "app": {
+        "background": {
+            "scripts": ["background.js"]
+        }
     },
-    "manifest_version": 2,
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    "permissions": [
+        "storage"
+    ],
+    "icons": { "16": "flex-note-16.png", "128": "flex-note-128.png" },
+    "manifest_version": 2
 }
