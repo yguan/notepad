@@ -97,14 +97,10 @@ define(function (require, exports, module) {
         };
 
         $scope.deleteNote = function (note) {
-            noteRepo.remove(note.id, {
-                success: function () {
-                    var index = _.indexOf($scope.notes, note);
-                    $scope.notes.splice(index, 1);
-                    $scope.$apply();
-                },
-                failure: genericHandlers.error
-            });
+            var index = _.indexOf($scope.notes, note);
+            $scope.notes.splice(index, 1);
+
+            noteRepo.remove(note.id, { success: genericHandlers.noop, failure: genericHandlers.error });
         };
     };
 });
