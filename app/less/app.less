@@ -107,7 +107,7 @@ h4 {
     .full-width;
     .overflow-hidden;
     background-color: lightgray;
-    min-height: 20px;
+    min-height: 25px;
   }
 
   .content {
@@ -118,10 +118,22 @@ h4 {
   }
 
   .default-fa-style(@default-icon-size);
-  .fa {
+  .icons {
     position: absolute;
     right: 5px;
     top: 0;
+    width: 42px;
+    text-align: right;
+
+    .fa-times {
+      padding-right: 5px;
+      color: #ff0000;
+      opacity: 0.4;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 

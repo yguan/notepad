@@ -122,7 +122,7 @@ h4 {
   width: 100%;
   overflow: hidden;
   background-color: lightgray;
-  min-height: 20px;
+  min-height: 25px;
 }
 .notes .content {
   padding: 0 5px;
@@ -138,10 +138,20 @@ h4 {
 .notes .fa:hover {
   color: #285e8e;
 }
-.notes .fa {
+.notes .icons {
   position: absolute;
   right: 5px;
   top: 0;
+  width: 42px;
+  text-align: right;
+}
+.notes .icons .fa-times {
+  padding-right: 5px;
+  color: #ff0000;
+  opacity: 0.4;
+}
+.notes .icons .fa-times:hover {
+  opacity: 1;
 }
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {

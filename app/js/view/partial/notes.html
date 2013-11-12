@@ -7,7 +7,10 @@
             <gridster-item ng-repeat="note in notes track by note.id" options="note.gridsterOptions">
                 <div class="title">{{note.title}}</div>
                 <div class="content" ng-bind-html="note.content"></div>
-                <div class="fa fa-pencil" ng-click="editNote(note)" title="Edit Note"></div>
+                <div class="icons">
+                    <span class="fa fa-times" ng-click="deleteNote(note)" title="Delete Note" ng-show="{{!note.content.length}}"></span>
+                    <span class="fa fa-pencil" ng-click="editNote(note)" title="Edit Note"></span>
+                </div>
             </gridster-item>
         </gridster>
     </div>

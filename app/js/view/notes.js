@@ -95,5 +95,16 @@ define(function (require, exports, module) {
         $scope.editNote = function (note) {
             editNoteCtrl.showEditor(note, $scope, $timeout, $modal);
         };
+
+        $scope.deleteNote = function (note) {
+            noteRepo.remove(note.id, {
+                success: function () {
+                    var index = _.indexOf($scope.notes, note);
+                    $scope.notes.splice(index, 1);
+                    $scope.$apply();
+                },
+                failure: genericHandlers.error
+            });
+        };
     };
 });

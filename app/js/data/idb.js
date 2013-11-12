@@ -180,6 +180,9 @@ define(function (require, exports, module) {
                 }
 
                 updateNext();
+            },
+            remove: function (dbKey, id, op) {
+                idb.db[dbKey].remove(id).done(op.success).fail(op.error);
             }
         };
 
