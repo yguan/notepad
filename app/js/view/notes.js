@@ -68,6 +68,7 @@ define(function (require, exports, module) {
                     $scope.notes.push(note);
                     $scope.$apply();
                     $scope.isAddingNote = false;
+                    $scope.editNote(note);
                 },
                 failure: function (error) {
                     genericHandlers.error(error);
