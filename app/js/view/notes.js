@@ -12,7 +12,7 @@ define(function (require, exports, module) {
 
     exports.name = 'NotesCtrl';
 
-    exports.controller = function ($scope, $location, $document, $timeout, $modal) {
+    exports.controller = function ($scope, $location, $document, $timeout, $modal, $sce) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
             container: '.notes',
             widgetMinWidth: 300,
@@ -115,6 +115,10 @@ define(function (require, exports, module) {
             $scope.notes.splice(index, 1);
 
             noteRepo.remove(note.id, { success: genericHandlers.noop, failure: genericHandlers.error });
+        };
+
+        $scope.trustAsHtml = function (content) {
+            return $sce.trustAsHtml(content);
         };
     };
 });

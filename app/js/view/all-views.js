@@ -8,7 +8,7 @@ define(function (require, exports, module) {
         theme = require('view/theme');
 
     function registerController(app, controller) {
-        app.controller(controller.name, ['$scope', '$location', '$document', '$timeout', '$modal', controller.controller]);
+        app.controller(controller.name, ['$scope', '$location', '$document', '$timeout', '$modal', '$sce', controller.controller]);
     }
 
     function configViewRouting(app) {
