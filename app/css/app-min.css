@@ -864,7 +864,7 @@ h4 {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 100px;
+  width: 120px;
   text-align: center;
   opacity: 0.2;
   background-color: white;
@@ -883,8 +883,8 @@ h4 {
 .sidebar-menu .fa:hover {
   color: #285e8e;
 }
-.sidebar-menu .fa-plus {
-  padding-right: 10px;
+.sidebar-menu .fa-cog {
+  padding-right: 20px;
 }
 .note-padding {
   padding: 0 5px;
