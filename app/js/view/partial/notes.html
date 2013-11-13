@@ -8,7 +8,7 @@
                 <div class="title">{{note.title}}</div>
                 <div class="content" ng-bind-html="note.content"></div>
                 <div class="icons">
-                    <span class="fa fa-times" ng-click="deleteNote(note)" title="Delete Note" ng-show="{{!note.content.length}}"></span>
+                    <span class="fa fa-times" ng-click="deleteNote(note)" title="Delete Note" ng-show="showDeleteIcon(note)"></span>
                     <span class="fa fa-pencil" ng-click="editNote(note)" title="Edit Note"></span>
                 </div>
             </gridster-item>

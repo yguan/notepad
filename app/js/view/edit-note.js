@@ -70,6 +70,7 @@ define(function (require, exports, module) {
             return scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
                 $timeout(function () {
                     note.content = scope.textAngularOpts.textAngularEditors.note.html;
+                    note.dateModified = new Date();
                     noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
                 }, 200);
             }, true);
@@ -79,6 +80,7 @@ define(function (require, exports, module) {
             return scope.$watch('title', function (newVal, oldVal) {
                 $timeout(function () {
                     note.title = newVal;
+                    note.dateModified = new Date();
                     noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
                 }, 200);
             }, true);
