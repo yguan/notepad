@@ -1,6 +1,10 @@
-# Chrome Notepad App
+# Flex Note Chrome App
 
-This repository contains the source code of a Chrome App that allows you to manage your notes.
+This repository contains the source code of a Chrome App that allows you to manage your notes. You can download the [Chrome App](https://chrome.google.com/webstore/detail/ckhmolgiclhlbmndaffmhddfdgbokbhb) from the Chrome Web Store.
+
+## Demo
+
+It's hosted [here](http://yguan.github.io/repos/flexnote/).
 
 ## Development
 
