@@ -1,5 +1,6 @@
 module.exports = {
     options: {
+        preserveComments: false,
         mangle: false
     },
     lib: {

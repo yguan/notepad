@@ -7,7 +7,8 @@ define(function (require, exports, module) {
     var gridsterSizeCalculator = require('view/gridster-size-calculator'),
         noteRepo = require('data/note-repository'),
         editNoteCtrl = require('view/edit-note'),
-        genericHandlers = require('view/generic-handlers');
+        genericHandlers = require('view/generic-handlers'),
+        theme = require('view/theme');
 
     exports.name = 'NotesCtrl';
 
@@ -90,6 +91,14 @@ define(function (require, exports, module) {
         $scope.$watch('gridsterWidgetOptions', function (newVal, oldVal) {
             if (newVal.length > 0) {
                 saveLayout($scope.notes, newVal);
+            }
+        });
+
+        $scope.bgColor = '';
+
+        $scope.$watch('bgColor', function (newVal, oldVal) {
+            if (newVal.length > 0) {
+                theme.setBgColor(newVal);
             }
         });
 

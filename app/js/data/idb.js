@@ -17,6 +17,13 @@ define(function (require, exports, module) {
                         dateCreated: {},
                         dateModified: {}
                     }
+                },
+                theme: {
+                    key: {
+                        keyPath: 'id',
+                        autoIncrement: false
+                    },
+                    indexes: {}
                 }
             },
             loadIndexedDB: function (op) {

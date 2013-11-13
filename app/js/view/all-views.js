@@ -4,7 +4,8 @@
 define(function (require, exports, module) {
     'use strict';
 
-    var notes = require('view/notes');
+    var notes = require('view/notes'),
+        theme = require('view/theme');
 
     function registerController(app, controller) {
         app.controller(controller.name, ['$scope', '$location', '$document', '$timeout', '$modal', controller.controller]);
@@ -19,6 +20,8 @@ define(function (require, exports, module) {
     }
 
     exports.init = function () {
+        theme.init();
+
         angular.element(document).ready(function () {
             var noteApp = angular.module('note', [
                 'ngRoute',
@@ -28,7 +31,8 @@ define(function (require, exports, module) {
                 'bootstrap-tagsinput',
                 'angularFileUpload',
                 'styling',
-                'textAngular'
+                'textAngular',
+                'colorpicker.module'
             ]);
 
             configViewRouting(noteApp);

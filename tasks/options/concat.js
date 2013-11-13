@@ -37,7 +37,8 @@ module.exports = {
             '<%= folder.src %>/js/lib/angular/bootstrap-tagsinput.js',
             '<%= folder.src %>/js/lib/angular/bootstrap-tagsinput-angular.js',
             '<%= folder.src %>/js/lib/angular/angular-file-upload.js',
-            '<%= folder.src %>/js/lib/angular/styling.js'
+            '<%= folder.src %>/js/lib/angular/styling.js',
+            '<%= folder.src %>/js/lib/angular/bootstrap-colorpicker.js'
         ],
         dest: '<%= folder.src %>/js/all-lib.js'
     }
