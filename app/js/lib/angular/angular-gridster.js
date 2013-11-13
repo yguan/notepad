@@ -43,7 +43,7 @@
                             gridster = ul.gridster(options).data('gridster');
                         },
                         addItem: function (elm, options) {
-                            gridster.add_widget(elm, options.sizex, options.sizey, options.col, options.row);
+                            gridster.add_widget(elm, options.size_x, options.size_y, options.col, options.row);
                         },
                         removeItem: function (elm) {
                             gridster.remove_widget(elm);

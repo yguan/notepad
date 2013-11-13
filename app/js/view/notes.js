@@ -23,7 +23,7 @@ define(function (require, exports, module) {
         $scope.notes = [];
 
         function getDefaultGridsterItemOptions() {
-            return {row: 1, col: 1, sizex: 1, sizey: 1};
+            return {row: 1, col: 1, size_x: 1, size_y: 1};
         }
 
         function getDefaultNote() {
