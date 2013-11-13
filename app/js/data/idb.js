@@ -33,7 +33,7 @@ define(function (require, exports, module) {
                     return;
                 }
                 db.open({
-                    server: 'app-db',
+                    server: 'flexnote',
                     version: 1,
                     schema: me.schema
                 })
