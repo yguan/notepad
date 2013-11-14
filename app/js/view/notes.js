@@ -69,6 +69,8 @@ define(function (require, exports, module) {
                     $scope.notes.push(note);
                     $scope.$apply();
                     $scope.isAddingNote = false;
+
+                    $('.textAngular-text').html(''); // hack to clear editor text
                     $scope.editNote(note);
                 },
                 failure: function (error) {

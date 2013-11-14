@@ -111,7 +111,6 @@ define(function (require, exports, module) {
             modalEl.modal('show');
         });
 
-
         if (noteEditor.titleWatcher) {
             noteEditor.titleWatcher();
         }
