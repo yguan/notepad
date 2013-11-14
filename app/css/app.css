@@ -210,16 +210,6 @@
 ::-webkit-scrollbar-thumb {
   background-color: #808080;
 }
-html,
-body,
-.viewport,
-.main-view,
-.gridster {
-  height: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-}
 body {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
