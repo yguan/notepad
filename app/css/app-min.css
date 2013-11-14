@@ -907,16 +907,18 @@ h4 {
   position: absolute;
   right: 5px;
   top: 0;
-  width: 42px;
+  width: 50px;
   text-align: right;
 }
 .notes .icons .fa-times {
-  padding-right: 5px;
   color: #ff0000;
   opacity: 0.4;
 }
 .notes .icons .fa-times:hover {
   opacity: 1;
+}
+.notes .icons .fa-pencil {
+  padding-left: 13px;
 }
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {

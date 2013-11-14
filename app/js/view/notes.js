@@ -106,10 +106,6 @@ define(function (require, exports, module) {
             editNoteCtrl.showEditor(note, $scope, $timeout, $modal);
         };
 
-        $scope.showDeleteIcon = function (note) {
-            return note.content.length === 0;
-        };
-
         $scope.deleteNote = function (note) {
             var index = _.indexOf($scope.notes, note);
             $scope.notes.splice(index, 1);
