@@ -1,7 +1,7 @@
 {
     "name": "Flex Note",
     "description": "A simple note taking app that supports dynamic layout",
-    "version": "0.1",
+    "version": "0.2",
     "manifest_version": 2,
     "permissions": [
         "storage"
