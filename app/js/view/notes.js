@@ -15,15 +15,15 @@ define(function (require, exports, module) {
     exports.controller = function ($scope, $location, $document, $timeout, $modal, $sce) {
         var gridsterSize = gridsterSizeCalculator.getSizeInfo({
             container: '.notes',
-            widgetMinWidth: 300,
-            widgetMinHeight: 250,
+            widgetMinWidth: 100,
+            widgetMinHeight: 100,
             padding: 5
         });
 
         $scope.notes = [];
 
         function getDefaultGridsterItemOptions() {
-            return {row: 1, col: 1, size_x: 1, size_y: 1};
+            return {row: 1, col: 1, size_x: 3, size_y: 2};
         }
 
         function getDefaultNote() {
