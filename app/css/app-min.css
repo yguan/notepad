@@ -920,6 +920,9 @@ h4 {
 .notes .icons .fa-pencil {
   padding-left: 13px;
 }
+.delete-note {
+  width: 200px;
+}
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {
   font-size: 20px !important;

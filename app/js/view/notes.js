@@ -106,15 +106,27 @@ define(function (require, exports, module) {
             editNoteCtrl.showEditor(note, $scope, $timeout, $modal);
         };
 
-        $scope.deleteNote = function (note) {
-            var index = _.indexOf($scope.notes, note);
-            $scope.notes.splice(index, 1);
-
-            noteRepo.remove(note.id, { success: genericHandlers.noop, failure: genericHandlers.error });
-        };
-
         $scope.trustAsHtml = function (content) {
             return $sce.trustAsHtml(content);
+        };
+
+        $scope.setNoteToDelete = function (note) {
+            $scope.popover.note = note;
+        };
+
+        $scope.popover = {
+            note: null,
+            deleteNote: function (dismiss) {
+                var index = _.indexOf($scope.notes, this.note);
+                $scope.notes.splice(index, 1);
+
+                noteRepo.remove(this.note.id, {
+                    success: function () {
+                        dismiss();
+                    },
+                    failure: genericHandlers.error
+                });
+            }
         };
     };
 });
