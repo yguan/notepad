@@ -111,16 +111,17 @@ define(function (require, exports, module) {
         };
 
         $scope.setNoteToDelete = function (note) {
-            $scope.popover.note = note;
+            $scope.noteToDelete = note;
         };
 
         $scope.popover = {
             note: null,
             deleteNote: function (dismiss) {
-                var index = _.indexOf($scope.notes, this.note);
+                var note = $scope.noteToDelete,
+                    index = _.indexOf($scope.notes, note);
                 $scope.notes.splice(index, 1);
 
-                noteRepo.remove(this.note.id, {
+                noteRepo.remove(note.id, {
                     success: function () {
                         dismiss();
                     },

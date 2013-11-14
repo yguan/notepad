@@ -308,7 +308,13 @@ h4 {
   padding-left: 13px;
 }
 .delete-note {
-  width: 200px;
+  width: 130px;
+}
+.popover {
+  left: -110px !important;
+}
+.popover.bottom .arrow {
+  left: 118px !important;
 }
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {

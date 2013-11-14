@@ -105,9 +105,9 @@ define(function (require, exports, module) {
         }
 
         noteEditor.scope.title = note.title;
-        noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
 
         noteEditor.modal.then(function (modalEl) {
+            noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
             modalEl.modal('show');
         });
 
