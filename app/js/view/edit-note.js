@@ -86,11 +86,7 @@ define(function (require, exports, module) {
             }, true);
         }
 
-        if (noteEditor) {
-            noteEditor.modal.then(function (modalEl) {
-                modalEl.modal('show');
-            });
-        } else {
+        if (!noteEditor) {
             var scope = $scope.$new(true);
             scope.modalWidth = getModalWidth;
             scope.textAngularOpts = textAngularOpts;
@@ -98,14 +94,23 @@ define(function (require, exports, module) {
             noteEditor = {
                 modal: $modal({
                     template: 'js/view/partial/edit-note.html',
-                    show: true,
+                    show: false,
                     backdrop: 'static',
                     persist: true,
                     scope: scope
                 }),
                 scope: scope
             };
+
         }
+
+        noteEditor.scope.title = note.title;
+        noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
+
+        noteEditor.modal.then(function (modalEl) {
+            modalEl.modal('show');
+        });
+
 
         if (noteEditor.titleWatcher) {
             noteEditor.titleWatcher();
@@ -113,9 +118,6 @@ define(function (require, exports, module) {
         if (noteEditor.contentWatcher) {
             noteEditor.contentWatcher();
         }
-
-        noteEditor.scope.title = note.title;
-        noteEditor.scope.textAngularOpts.textAngularEditors.note.html = note.content;
 
         noteEditor.titleWatcher = createTitleWatcher(noteEditor.scope, note);
         noteEditor.contentWatcher = createContentWatcher(noteEditor.scope, note);
