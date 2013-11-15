@@ -116,7 +116,9 @@ define(function (require, exports, module) {
             return $sce.trustAsHtml(content);
         };
 
-        $scope.setNoteToDelete = function (note) {
+        $scope.setNoteToDelete = function (note, $event) {
+            $($event.target).closest('.player-revert').removeClass('player-revert');
+            $($event.target).parents('.gs-w').addClass('player-revert');
             $scope.noteToDelete = note;
         };
 
