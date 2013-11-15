@@ -832,6 +832,7 @@ body {
 }
 .notes {
   margin: 70px;
+  min-height: 600px;
 }
 .gridster .gs-w,
 .gridster .gs_w {
