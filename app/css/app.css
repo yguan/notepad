@@ -288,6 +288,9 @@ h4 {
   outline: none;
   cursor: text;
 }
+.notes .content .not-editable {
+  cursor: default;
+}
 .notes .fa {
   color: #428bca;
   font-size: 20px;
@@ -314,13 +317,10 @@ h4 {
   padding-left: 13px;
 }
 .delete-note {
-  width: 130px;
+  width: 162px;
 }
-.popover {
-  left: -110px !important;
-}
-.popover.bottom .arrow {
-  left: 118px !important;
+.popover-title {
+  display: none;
 }
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {
