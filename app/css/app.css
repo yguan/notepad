@@ -220,6 +220,10 @@ body {
   background-color: #220e58;
   -webkit-print-color-adjust: exact;
 }
+.main-view {
+  height: 100%;
+  min-height: 100%;
+}
 .notes {
   margin: 70px;
 }
