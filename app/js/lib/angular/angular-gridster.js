@@ -46,7 +46,7 @@
                             gridster.add_widget(elm, options.size_x, options.size_y, options.col, options.row);
                         },
                         removeItem: function (elm) {
-                            gridster.remove_widget(elm);
+                            gridster.remove_widget(elm, true);
                         }
                     };
                 },
