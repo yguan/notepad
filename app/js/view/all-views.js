@@ -31,6 +31,7 @@ define(function (require, exports, module) {
                 'bootstrap-tagsinput',
                 'angularFileUpload',
                 'styling',
+                'contenteditable',
                 'textAngular',
                 'colorpicker.module'
             ]);

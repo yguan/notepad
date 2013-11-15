@@ -29,7 +29,8 @@ define(function (require, exports, module) {
         function getDefaultNote() {
             return {
                 title: '',
-                content: '',
+                content: ' ',
+                lock: false,
                 dateCreated: new Date(),
                 gridsterOptions: getDefaultGridsterItemOptions()
             };
@@ -105,7 +106,10 @@ define(function (require, exports, module) {
         });
 
         $scope.editNote = function (note) {
-            editNoteCtrl.showEditor(note, $scope, $timeout, $modal);
+            $timeout(function () {
+                note.dateModified = new Date();
+                noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
+            }, 200);
         };
 
         $scope.trustAsHtml = function (content) {

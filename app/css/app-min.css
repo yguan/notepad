@@ -807,6 +807,9 @@ th.hidden-lg,td.hidden-lg{display:table-cell !important;}
 .inline-block {
   display: inline-block;
 }
+.no-outline {
+  outline: none;
+}
 .default-font {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
@@ -876,9 +879,6 @@ h4 {
 .sidebar-menu .fa-cog {
   padding-right: 20px;
 }
-.note-padding {
-  padding: 0 5px;
-}
 .notes {
   color: darkslategray;
 }
@@ -890,10 +890,12 @@ h4 {
   min-height: 25px;
 }
 .notes .content {
-  padding: 0 5px;
+  margin: 10px 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 45px);
   overflow: hidden;
-  width: 90%;
-  height: 90%;
+  outline: none;
+  cursor: text;
 }
 .notes .fa {
   color: #428bca;

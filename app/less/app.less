@@ -92,15 +92,11 @@ h4 {
   }
 }
 
-.note-padding {
-  padding: 0 5px;
-}
-
 .notes {
   color: darkslategray;
 
   .title {
-    .note-padding;
+    padding: 0 5px;
     .full-width;
     .overflow-hidden;
     background-color: lightgray;
@@ -108,10 +104,13 @@ h4 {
   }
 
   .content {
-    .note-padding;
+    margin: 10px 10px;
+    overflow: hidden;
+    width: calc(~'100% - 20px');
+    height: calc(~'100% - 45px');
     .overflow-hidden;
-    width: 90%;
-    height: 90%;
+    .no-outline;
+    cursor: text;
   }
 
   .default-fa-style(@default-icon-size);

@@ -6,8 +6,14 @@
     <div class="notes">
         <gridster options="gridster.options">
             <gridster-item ng-repeat="note in notes track by note.id" options="note.gridsterOptions">
-                <div class="title">{{note.title}}</div>
-                <div class="content" ng-bind-html="trustAsHtml(note.content)"></div>
+                <div class="title gs-draggable">{{note.title}}</div>
+                <div class="content"
+                     contenteditable="true"
+                     ng-model="note.content"
+                     strip-br="true"
+                     select-non-editable="true"
+                     ng-keyup="editNote(note)">
+                </div>
                 <div class="icons">
                     <span class="fa fa-times"
                           data-unique="1"

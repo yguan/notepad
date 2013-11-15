@@ -558,13 +558,17 @@
     };
 
 
+    fn.is_draggable = function (e) {
+        return $(event.target).is('.gs-draggable, .gs-resize-handle');
+    };
+
     fn.drag_handler = function(e) {
         var node = e.target.nodeName;
         if (this.disabled || e.which !== 1 && !isTouch) {
             return;
         }
 
-        if (this.ignore_drag(e)) {
+        if (!this.is_draggable(e)) {
             return;
         }
 
@@ -683,7 +687,7 @@
     fn.on_select_start = function(e) {
         if (this.disabled) { return; }
 
-        if (this.ignore_drag(e)) {
+        if (!this.is_draggable(e)) {
             return;
         }
 

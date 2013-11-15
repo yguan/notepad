@@ -67,13 +67,7 @@ define(function (require, exports, module) {
 
     exports.showEditor = function (note, $scope, $timeout, $modal) {
         function createContentWatcher(scope, note) {
-            return scope.$watch('textAngularOpts.textAngularEditors.note.html', function (newVal, oldVal) {
-                $timeout(function () {
-                    note.content = scope.textAngularOpts.textAngularEditors.note.html;
-                    note.dateModified = new Date();
-                    noteRepo.update(note, {succes: genericHandlers.noop, failure: genericHandlers.error});
-                }, 200);
-            }, true);
+
         }
 
         function createTitleWatcher(scope, note) {

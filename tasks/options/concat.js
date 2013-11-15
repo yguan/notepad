@@ -33,6 +33,7 @@ module.exports = {
             '<%= folder.src %>/js/lib/angular/angular-strap.js',
             '<%= folder.src %>/js/lib/angular/jquery.gridster.js',
             '<%= folder.src %>/js/lib/angular/angular-gridster.js',
+            '<%= folder.src %>/js/lib/angular/angular-contenteditable.js',
             '<%= folder.src %>/js/lib/angular/textAngular.js',
             '<%= folder.src %>/js/lib/angular/bootstrap-tagsinput.js',
             '<%= folder.src %>/js/lib/angular/bootstrap-tagsinput-angular.js',
