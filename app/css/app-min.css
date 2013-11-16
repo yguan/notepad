@@ -892,6 +892,7 @@ h4 {
   overflow: hidden;
   background-color: lightgray;
   min-height: 25px;
+  cursor: move;
 }
 .notes .content {
   margin: 10px 10px;
