@@ -37,8 +37,12 @@ define(function (require, exports, module) {
         }
 
         function saveLayout(notes, gridsterWidgetOptions) {
-            _.each(notes, function (note, index) {
-                angular.extend(note.gridsterOptions, gridsterWidgetOptions[index]);
+            var index = 0;
+            _.each(notes, function (note) {
+                if (!note.remove) {
+                    angular.extend(note.gridsterOptions, gridsterWidgetOptions[index]);
+                    index = index + 1;
+                }
             });
             noteRepo.updateAll(notes, {success: genericHandlers.noop, failure: genericHandlers.error});
         }
