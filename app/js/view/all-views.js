@@ -28,11 +28,9 @@ define(function (require, exports, module) {
                 'ngSanitize',
                 'angular-gridster',
                 '$strap.directives',
-                'bootstrap-tagsinput',
                 'angularFileUpload',
                 'styling',
                 'contenteditable',
-                'textAngular',
                 'colorpicker.module'
             ]);
 

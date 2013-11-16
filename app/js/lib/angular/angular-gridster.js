@@ -61,7 +61,7 @@
                 }
             };
         })
-        .directive("gridsterItem", function () {
+        .directive("gridsterItem", ['$timeout', function ($timeout) {
 
             return {
                 restrict: "E",
@@ -70,16 +70,19 @@
                 transclude: true,
                 scope: {
                     options: '=options',
-                    model: '=ngModel'
+                    model: '=ngModel',
+                    hide: '=ngHide'
                 },
                 replace: true,
                 link: function (scope, elm, attrs, controller) {
                     controller.addItem(elm, scope.options);
 
-                    return elm.bind("$destroy", function () {
-                        controller.removeItem(elm);
+                    scope.$watch('hide', function (newVal, oldVal) {
+                        if (newVal === true) {
+                            controller.removeItem(elm);
+                        }
                     });
                 }
             };
-        });
+        }]);
 }());

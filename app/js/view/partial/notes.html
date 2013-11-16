@@ -5,7 +5,7 @@
     </div>
     <div class="notes">
         <gridster options="gridster.options">
-            <gridster-item ng-repeat="note in notes track by note.id" options="note.gridsterOptions">
+            <gridster-item ng-repeat="note in notes track by note.id" options="note.gridsterOptions" ng-hide="note.remove">
                 <div class="title gs-draggable">{{note.title}}</div>
                 <div class="content"
                      contenteditable="true"

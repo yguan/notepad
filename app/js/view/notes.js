@@ -125,11 +125,9 @@ define(function (require, exports, module) {
         $scope.popover = {
             note: null,
             deleteNote: function (dismiss) {
-                var note = $scope.noteToDelete,
-                    index = _.indexOf($scope.notes, note);
-                $scope.notes.splice(index, 1);
+                $scope.noteToDelete.remove = true;
 
-                noteRepo.remove(note.id, {
+                noteRepo.remove($scope.noteToDelete.id, {
                     success: function () {
                         dismiss();
                     },
