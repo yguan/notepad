@@ -72,7 +72,7 @@
 
             var wrap = $('<span class="colorpicker-wrap"></span>');
             var label = $('<span class="colorpicker-label"></span>');
-            var trigger = $('<span class="colorpicker-trigger"></span>');
+            var trigger = $('<span class="colorpicker-trigger" onmousedown="event.preventDefault();"></span>');
             var picker = $('<div style="width: ' + (options.size + 4) * options.count + 'px" class="colorpicker-picker"></div>');
             var info = $('<div class="colorpicker-picker-info"></div>');
             var clear = $('<div style="clear:both;"></div>');
