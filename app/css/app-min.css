@@ -875,6 +875,9 @@ th.hidden-lg,td.hidden-lg{display:table-cell !important;}
 ::-webkit-scrollbar-thumb {
   background-color: #808080;
 }
+html {
+  overflow: auto;
+}
 body {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
