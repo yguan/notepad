@@ -4,7 +4,7 @@
 define(function (require, exports, module) {
     'use strict';
 
-    window.execDocumentCmdWithAttr = function (e) {
+    exports.execDocumentCmdWithAttr = function (e) {
         var $target = $(e.target),
             command = $target.data('cmd'),
             agrumentVal = $target.data('arg');
@@ -12,7 +12,7 @@ define(function (require, exports, module) {
         document.execCommand(command, false, agrumentVal);
     };
 
-    window.execDocumentCmd = function (command, agrumentVal) {
+    exports.execDocumentCmd = function (command, agrumentVal) {
         document.execCommand(command, false, agrumentVal);
     };
 });

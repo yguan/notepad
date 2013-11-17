@@ -8,7 +8,8 @@ define(function (require, exports, module) {
         noteRepo = require('data/note-repository'),
         editNoteCtrl = require('view/edit-note'),
         genericHandlers = require('view/generic-handlers'),
-        theme = require('view/theme');
+        theme = require('view/theme'),
+        textFormat = require('lib/text-format');
 
     exports.name = 'NotesCtrl';
 
@@ -146,8 +147,12 @@ define(function (require, exports, module) {
                     size: 20,
                     hide: false,
                     onSelectColor: function (color) {
-                        window.execDocumentCmd('foreColor', color);
+                        textFormat.execDocumentCmd('foreColor', color);
                     }
+                });
+
+                $($event.target).parent().find('.editor-toolbar').click(function (e) {
+                    textFormat.execDocumentCmdWithAttr(e);
                 });
             }, 100);
         };
