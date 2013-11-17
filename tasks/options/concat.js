@@ -36,7 +36,8 @@ module.exports = {
             '<%= folder.src %>/js/lib/angular/angular-contenteditable.js',
             '<%= folder.src %>/js/lib/angular/angular-file-upload.js',
             '<%= folder.src %>/js/lib/angular/styling.js',
-            '<%= folder.src %>/js/lib/angular/bootstrap-colorpicker.js'
+            '<%= folder.src %>/js/lib/angular/bootstrap-colorpicker.js',
+            '<%= folder.src %>/js/lib/angular/jquery.colorpicker.js'
         ],
         dest: '<%= folder.src %>/js/all-lib.js'
     }

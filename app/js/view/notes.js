@@ -139,6 +139,17 @@ define(function (require, exports, module) {
             }
         };
 
+        $scope.createColorPicker = function ($event) {
+            $timeout(function () {
+                $($event.target).parent().find('.text-color-picker').colorpicker({
+                    size: 20,
+                    hide: false,
+                    onSelectColor: function (color) {
+                        window.execDocumentCmd('foreColor', color);
+                    }
+                });
+            }, 100);
+        };
         $scope.updateNote = function (note) {
             $timeout(function () {
                 $scope.editNote(note);

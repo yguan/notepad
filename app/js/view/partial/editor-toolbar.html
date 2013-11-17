@@ -1,6 +1,6 @@
-<div class="editor-toolbar" onmousedown="event.preventDefault();" onclick="execDocumentCmd(event)" ng-click="updateNote(note)">
+<div class="editor-toolbar" onmousedown="event.preventDefault();" onclick="execDocumentCmdWithAttr(event)" ng-click="updateNote(note)">
     <span class="fa fa-angle-double-down" ng-click="dismiss()" title="Close"></span>
-    <span class="fa fa-cog" colorpicker class="span2" ng-model="bgColor" title="Change Background Color"></span>
+    <span class="text-color-picker"></span>
     <span class="fa text-icon" data-cmd="bold" title="Bold (ctrl + b)">B</span>
     <span class="fa fa-italic" data-cmd="italic" title="Italic (ctrl + i)"></span>
     <span class="fa fa-underline" data-cmd="underline" title="Underline (ctrl + u)"></span>

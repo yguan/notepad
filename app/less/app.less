@@ -1,4 +1,5 @@
 @import "colorpicker";
+@import "simple-colorpicker";
 @import "common";
 
 @view-padding: 70px;
@@ -101,7 +102,7 @@ h4 {
 }
 
 .notes {
-  color: darkslategray;
+  color: black;
 
   .title {
     padding: 0 5px;
@@ -163,6 +164,11 @@ h4 {
 .editor-toolbar {
   width: 611px;
   letter-spacing: 5px;
+  
+  .colorpicker-wrap {
+    width: 20px;
+    .inline-block;
+  }
 }
 
 .popover-title {

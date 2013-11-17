@@ -154,6 +154,55 @@
 .colorpicker-color div {
   height: 10px;
 }
+.colorpicker-picker-span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  float: left;
+  border: 1px solid #000;
+  margin-right: 2px;
+  cursor: pointer;
+}
+.colorpicker-picker-info {
+  padding: 0 0 2px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+.colorpicker-picker-span:hover {
+  border: 1px solid #fff;
+}
+.colorpicker-picker-span.active {
+  border: 1px solid #fff;
+}
+.colorpicker-picker {
+  background-color: #353534;
+  padding: 5px;
+  display: none;
+  position: absolute;
+  top: 0;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #111;
+  -moz-box-shadow: 2px 2px 5px #111;
+  -webkit-box-shadow: 2px 2px 5px #111;
+}
+.colorpicker-trigger {
+  display: block;
+  width: 15px;
+  height: 15px;
+  float: left;
+  border: 1px solid #000;
+  cursor: pointer;
+  background-color: #808080;
+}
+.colorpicker-wrap {
+  font-family: 'Trebuchet MS', Verdana, Arial, Geneva, sans-serif;
+}
+.colorpicker-label {
+  float: left;
+  margin-right: 2px;
+}
 .full-height {
   height: 100%;
   min-height: 100%;
@@ -274,7 +323,7 @@ h4 {
   padding-bottom: 10px;
 }
 .notes {
-  color: darkslategray;
+  color: black;
 }
 .notes .title {
   padding: 0 5px;
@@ -336,6 +385,10 @@ h4 {
 .editor-toolbar {
   width: 611px;
   letter-spacing: 5px;
+}
+.editor-toolbar .colorpicker-wrap {
+  width: 20px;
+  display: inline-block;
 }
 .popover-title {
   display: none;
