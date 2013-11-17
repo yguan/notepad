@@ -1,4 +1,5 @@
 <div class="editor-toolbar" onmousedown="event.preventDefault();" onclick="execDocumentCmd(event)" ng-click="updateNote(note)">
+    <span class="fa fa-angle-double-down" ng-click="dismiss()" title="Close"></span>
     <span class="fa fa-cog" colorpicker class="span2" ng-model="bgColor" title="Change Background Color"></span>
     <span class="fa text-icon" data-cmd="bold" title="Bold (ctrl + b)">B</span>
     <span class="fa fa-italic" data-cmd="italic" title="Italic (ctrl + i)"></span>
@@ -18,5 +19,4 @@
     <span class="fa fa-minus" data-cmd="insertHorizontalRule" title="Horizontal Rule"></span>
     <span class="fa fa-undo" data-cmd="undo"></span>
     <span class="fa fa-repeat" data-cmd="redo"></span>
-    <span class="fa fa-angle-double-down" ng-click="dismiss()" title="Close"></span>
 </div>
