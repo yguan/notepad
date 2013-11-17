@@ -75,7 +75,6 @@ define(function (require, exports, module) {
                     $scope.$apply();
                     $scope.isAddingNote = false;
 
-                    $('.textAngular-text').html(''); // hack to clear editor text
                     $scope.editNote(note);
                 },
                 failure: function (error) {
@@ -138,6 +137,12 @@ define(function (require, exports, module) {
                     failure: genericHandlers.error
                 });
             }
+        };
+
+        $scope.updateNote = function (note) {
+            $timeout(function () {
+                $scope.editNote(note);
+            }, 300);
         };
     };
 });

@@ -22,6 +22,11 @@
     &:hover {
       color: #285e8e;
     }
+
+    &.text-icon {
+      font-size: 25px;
+      font-weight: bold;
+    }
   }
 }
 
@@ -75,11 +80,10 @@ h4 {
   position: fixed;
   left: 5px;
   top: 10px;
-  z-index: 5;
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 120px;
+  width: 50px;
   text-align: center;
   opacity: 0.2;
   background-color: white;
@@ -92,7 +96,7 @@ h4 {
   .default-fa-style(40px);
 
   .fa-cog {
-    padding-right: 20px;
+    padding-bottom: 10px;
   }
 }
 
@@ -119,6 +123,14 @@ h4 {
 
     .not-editable {
       cursor: default;
+    }
+
+    hr {
+      border-top: solid 1px darkgray;
+    }
+
+    blockquote {
+      border-left: 5px solid darkgray;
     }
   }
 
@@ -148,8 +160,16 @@ h4 {
   width: 162px;
 }
 
+.editor-toolbar {
+  width: 611px;
+  letter-spacing: 5px;
+}
+
 .popover-title {
   display: none;
+}
+.popover {
+  max-width: 1000px !important;
 }
 
 .textAngular-toolbar {

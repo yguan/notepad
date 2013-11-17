@@ -244,11 +244,10 @@ h4 {
   position: fixed;
   left: 5px;
   top: 10px;
-  z-index: 5;
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 120px;
+  width: 50px;
   text-align: center;
   opacity: 0.2;
   background-color: white;
@@ -267,8 +266,12 @@ h4 {
 .sidebar-menu .fa:hover {
   color: #285e8e;
 }
+.sidebar-menu .fa.text-icon {
+  font-size: 25px;
+  font-weight: bold;
+}
 .sidebar-menu .fa-cog {
-  padding-right: 20px;
+  padding-bottom: 10px;
 }
 .notes {
   color: darkslategray;
@@ -292,6 +295,12 @@ h4 {
 .notes .content .not-editable {
   cursor: default;
 }
+.notes .content hr {
+  border-top: solid 1px darkgray;
+}
+.notes .content blockquote {
+  border-left: 5px solid darkgray;
+}
 .notes .fa {
   color: #428bca;
   font-size: 20px;
@@ -299,6 +308,10 @@ h4 {
 }
 .notes .fa:hover {
   color: #285e8e;
+}
+.notes .fa.text-icon {
+  font-size: 25px;
+  font-weight: bold;
 }
 .notes .icons {
   position: absolute;
@@ -320,8 +333,15 @@ h4 {
 .delete-note {
   width: 162px;
 }
+.editor-toolbar {
+  width: 611px;
+  letter-spacing: 5px;
+}
 .popover-title {
   display: none;
+}
+.popover {
+  max-width: 1000px !important;
 }
 .textAngular-toolbar .fa,
 .textAngular-toolbar .textAngular-toolbar-item {

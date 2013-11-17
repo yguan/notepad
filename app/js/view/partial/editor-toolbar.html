@@ -1,0 +1,22 @@
+<div class="editor-toolbar" onmousedown="event.preventDefault();" onclick="execDocumentCmd(event)" ng-click="updateNote(note)">
+    <span class="fa fa-cog" colorpicker class="span2" ng-model="bgColor" title="Change Background Color"></span>
+    <span class="fa text-icon" data-cmd="bold" title="Bold (ctrl + b)">B</span>
+    <span class="fa fa-italic" data-cmd="italic" title="Italic (ctrl + i)"></span>
+    <span class="fa fa-underline" data-cmd="underline" title="Underline (ctrl + u)"></span>
+    <span class="fa fa-strikethrough" data-cmd="strikeThrough" title="Strike Through"></span>
+    <span class="fa fa-subscript" data-cmd="subscript" title="Subscript"></span>
+    <span class="fa fa-superscript" data-cmd="superscript" title="Superscript"></span>
+    <span class="fa fa-list-ol" data-cmd="insertOrderedList" title="Ordered List"></span>
+    <span class="fa fa-list-ul" data-cmd="insertUnorderedList" title="Unordered List"></span>
+    <span class="fa fa-indent" data-cmd="indent" title="Indent"></span>
+    <span class="fa fa-outdent" data-cmd="outdent" title="Outdent"></span>
+    <span class="fa fa-align-left" data-cmd="justifyleft" title="Left Justify"></span>
+    <span class="fa fa-align-center" data-cmd="justifyCenter" title="Center Justify"></span>
+    <span class="fa fa-align-right" data-cmd="justifyright" title="Right Justify"></span>
+    <span class="fa fa-quote-left" data-cmd="formatBlock" data-arg="blockquote" title="Blockquote"></span>
+    <span class="fa fa-eraser" data-cmd="removeFormat" title="Clear Format"></span>
+    <span class="fa fa-minus" data-cmd="insertHorizontalRule" title="Horizontal Rule"></span>
+    <span class="fa fa-undo" data-cmd="undo"></span>
+    <span class="fa fa-repeat" data-cmd="redo"></span>
+    <span class="fa fa-angle-double-down" ng-click="dismiss()" title="Close"></span>
+</div>
