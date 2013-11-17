@@ -24,9 +24,9 @@
                     <span class="fa fa-pencil"
                           data-unique="1"
                           data-placement="top"
-                          ng-click="createColorPicker($event)"
+                          ng-click="showToolbar($event)"
                           bs-popover="'js/view/partial/editor-toolbar.html'"
-                          onmousedown="event.preventDefault();">
+                          ng-mousedown="preventDefault($event)">
                     </span>
                 </div>
             </gridster-item>

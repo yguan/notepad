@@ -139,7 +139,8 @@ define(function (require, exports, module) {
             }
         };
 
-        $scope.createColorPicker = function ($event) {
+        $scope.showToolbar = function ($event) {
+
             $timeout(function () {
                 $($event.target).parent().find('.text-color-picker').colorpicker({
                     size: 20,
@@ -150,6 +151,11 @@ define(function (require, exports, module) {
                 });
             }, 100);
         };
+
+        $scope.preventDefault = function ($event) {
+            $event.preventDefault();
+        }
+
         $scope.updateNote = function (note) {
             $timeout(function () {
                 $scope.editNote(note);

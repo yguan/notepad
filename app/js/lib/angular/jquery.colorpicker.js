@@ -72,14 +72,13 @@
 
             var wrap = $('<span class="colorpicker-wrap"></span>');
             var label = $('<span class="colorpicker-label"></span>');
-            var trigger = $('<span class="colorpicker-trigger" onmousedown="event.preventDefault();"></span>');
+            var trigger = $('<span class="colorpicker-trigger"></span>');
             var picker = $('<div style="width: ' + (options.size + 4) * options.count + 'px" class="colorpicker-picker"></div>');
             var info = $('<div class="colorpicker-picker-info"></div>');
             var clear = $('<div style="clear:both;"></div>');
 
             return this.each(function () {
                 obj = this;
-                create_wrap();
                 if (options.label !== '') {
                     create_label();
                 }
@@ -97,13 +96,6 @@
                     });
                 }
             });
-
-
-            function create_wrap() {
-                wrap.mouseleave(function () {
-                    picker.fadeOut('slow');
-                });
-            }
 
             function create_label() {
                 label.text(options.label);
@@ -142,6 +134,7 @@
                     if (options.onSelectColor) {
                         options.onSelectColor(color);
                     }
+                    picker.fadeOut('fast');
                     $(obj).data('color', color);
                     $(obj).change();
                 });

@@ -1,4 +1,4 @@
-<div class="editor-toolbar" onmousedown="event.preventDefault();" onclick="execDocumentCmdWithAttr(event)" ng-click="updateNote(note)">
+<div class="editor-toolbar" ng-mousedown="preventDefault($event)" onclick="execDocumentCmdWithAttr(event)" ng-click="updateNote(note)">
     <span class="fa fa-angle-double-down" ng-click="dismiss()" title="Close"></span>
     <span class="text-color-picker"></span>
     <span class="fa text-icon" data-cmd="bold" title="Bold (ctrl + b)">B</span>
