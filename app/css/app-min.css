@@ -1003,6 +1003,9 @@ h4 {
   width: 20px;
   display: inline-block;
 }
+.editor-toolbar .colorpicker-trigger {
+  border: none;
+}
 .popover-title {
   display: none;
 }

@@ -35203,7 +35203,7 @@ angular.module('colorpicker.module', [])
                 size: 20,
                 count: 6,
                 hide: true,
-                defaultColor: 'black',
+                defaultColor: '000000',
                 colors: [
                     'ac725e',
                     'd06b64',
@@ -35278,8 +35278,7 @@ angular.module('colorpicker.module', [])
                     var left = offset.left + $(this).width() + 5;
                     $(picker).css({
                         'top': top,
-                        'left': left,
-                        'background-color': options.defaultColor
+                        'left': left
                     }).fadeIn('slow');
                 });
             }
