@@ -15,9 +15,9 @@ module.exports = {
             '<%= folder.src %>/less/css/bootstrap-tagsinput-min.css',
             '<%= folder.src %>/less/css/jquery-gridster-min.css',
             '<%= folder.src %>/less/css/font-awesome-min.css',
-            '<%= folder.distTemp %>/app.css'
+            '<%= folder.buildTemp %>/app.css'
         ],
-        dest: '<%= folder.dist %>/css/app-min.css'
+        dest: '<%= folder.distTemp %>/css/app-min.css'
     },
     lib: {
         src: [

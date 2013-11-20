@@ -16,8 +16,10 @@ module.exports = function (grunt) {
     var config = {
         folder: {
             src: 'app',
-            dist: 'dist',
-            distTemp: 'dist/temp'
+            desk: 'desk',
+            local: 'local',
+            buildTemp: 'buildTemp',
+            distTemp: 'distTemp'
         }
     };
 

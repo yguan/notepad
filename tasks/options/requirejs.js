@@ -3,7 +3,7 @@ module.exports = {
         options: {
             baseUrl: '<%= folder.src %>/js/',
             name: '<%= folder.src %>',
-            out: '<%= folder.dist %>/js/app.js',
+            out: '<%= folder.distTemp %>/js/app.js',
             generateSourceMaps: false,
             optimize: 'uglify2',
             uglify2: {

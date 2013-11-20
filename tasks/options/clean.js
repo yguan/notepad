@@ -1,3 +1,3 @@
 module.exports = {
-    dist: ['<%= folder.distTemp %>']
+    dist: ['<%= folder.buildTemp %>', '<%= folder.distTemp %>']
 };

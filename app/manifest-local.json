@@ -7,8 +7,8 @@
         "storage"
     ],
     "app": {
-        "background": {
-            "scripts": ["background.js"]
+        "launch": {
+            "local_path": "index.html"
         }
     },
     "icons": { "16": "flex-note-16.png", "128": "flex-note-128.png" }

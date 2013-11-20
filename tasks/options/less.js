@@ -9,7 +9,7 @@ module.exports = {
             yuicompress: true
         },
         files: {
-            '<%= folder.distTemp %>/app.css': '<%= folder.src %>/less/app.less'
+            '<%= folder.buildTemp %>/app.css': '<%= folder.src %>/less/app.less'
         }
     }
 };

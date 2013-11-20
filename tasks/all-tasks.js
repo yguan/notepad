@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', ['cssdev', 'lib']);
 
-    grunt.registerTask('build', ['less:dist', 'concat:cssdist', 'requirejs:dist', 'copy', 'clean:dist']);
+    grunt.registerTask('build', ['less:dist', 'concat:cssdist', 'requirejs:dist', 'copy:dist', 'copy:apps', 'clean:dist']);
 
     grunt.registerTask('sdev', ['connect:dev']);
 

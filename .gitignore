@@ -173,6 +173,8 @@ app-built/
 built/
 build-temp/
 dist/
+desk/
+local/
 
 # Angular JS
 **/bower_components/
